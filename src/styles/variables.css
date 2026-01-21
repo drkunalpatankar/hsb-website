@@ -1,0 +1,49 @@
+:root {
+  /* Brand Colors */
+  --color-bg-off-white: #F9F9F7;
+  --color-bg-warm-beige: #FDFCF8;
+  --color-accent-mint: #E0EFEA;
+  --color-accent-teal: #A4C3B2;
+  --color-accent-lavender: #E0DFEF; /* Slightly more muted lavender */
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #555555;
+  --color-white: #FFFFFF;
+  --color-primary-action: #2C5F4D; /* Deep teal for buttons/actions */
+  --color-primary-action-hover: #1F4538;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Lato', sans-serif;
+  
+  /* Font Sizes */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 3rem;
+  --text-4xl: 4rem;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+
+  /* BorderRadius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 32px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 4px 10px rgba(0,0,0,0.03);
+  --shadow-md: 0 10px 20px rgba(0,0,0,0.04);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,0.05);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}

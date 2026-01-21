@@ -1,0 +1,117 @@
+.education {
+    background-color: var(--color-bg-off-white);
+}
+
+.education__header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.education__title {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-primary);
+}
+
+.education__subtitle {
+    color: var(--color-text-secondary);
+}
+
+.education__timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-lg);
+    position: relative;
+    padding-top: var(--spacing-lg);
+}
+
+.education__line {
+    position: absolute;
+    top: 50px;
+    /* Adjust based on icon/number positioning */
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background-color: var(--color-accent-teal);
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.education__step {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    items-align: center;
+    text-align: center;
+}
+
+.education__icon-wrapper {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border: 2px solid var(--color-accent-teal);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-sm);
+    color: var(--color-primary-action);
+}
+
+.education__number {
+    font-family: var(--font-serif);
+    font-size: var(--text-4xl);
+    color: var(--color-accent-mint);
+    opacity: 0.5;
+    font-weight: 700;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+.education__step-title {
+    font-size: var(--text-lg);
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text-primary);
+}
+
+.education__step-desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+}
+
+@media (max-width: 900px) {
+    .education__timeline {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+        padding-left: var(--spacing-lg);
+    }
+
+    .education__line {
+        width: 2px;
+        height: 90%;
+        left: 45px;
+        /* Adjust to align with icons */
+        top: 0;
+    }
+
+    .education__step {
+        flex-direction: row;
+        text-align: left;
+        gap: var(--spacing-md);
+        align-items: flex-start;
+    }
+
+    .education__icon-wrapper {
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    .education__number {
+        top: -10px;
+        left: 20px;
+    }
+}

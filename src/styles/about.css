@@ -1,0 +1,111 @@
+/* About Page Specific Styles */
+
+.about-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-section-title {
+    font-size: var(--text-3xl);
+    font-family: var(--font-serif);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-md);
+}
+
+.about-text-lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--color-accent-teal);
+    font-weight: 500;
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+}
+
+.about-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    font-style: italic;
+}
+
+/* Methodology Grid */
+.methodology-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.methodology-card {
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.methodology-card:hover {
+    transform: translateY(-5px);
+}
+
+.method-icon {
+    width: 40px;
+    height: 40px;
+    color: var(--color-primary-action);
+    margin-bottom: var(--spacing-md);
+    stroke-width: 1.5;
+}
+
+.methodology-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-text-primary);
+}
+
+.methodology-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+
+/* Promise List */
+.promise-list {
+    margin-top: var(--spacing-xl);
+}
+
+.promise-item {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    align-items: flex-start;
+}
+
+.promise-icon {
+    color: var(--color-accent-mint);
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+}
+
+.promise-item h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: var(--color-text-primary);
+}
+
+.promise-item p {
+    color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+    .about-text-lead {
+        font-size: 1.1rem;
+    }
+}

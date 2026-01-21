@@ -1,0 +1,95 @@
+/* Shared Page Styles */
+.page {
+    padding-top: 80px;
+    min-height: 100vh;
+}
+
+.page-header {
+    background-color: var(--color-bg-warm-beige);
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+}
+
+.page-title {
+    font-size: var(--text-4xl);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.page-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Treatments Page Specifics */
+.treatments-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.treatment-item-full {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-lg);
+}
+
+.treatment-detail__title {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    color: var(--color-primary-action);
+    margin-bottom: var(--spacing-sm);
+}
+
+.treatment-detail__desc {
+    margin-bottom: var(--spacing-md);
+}
+
+.treatment-detail__benefits {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.treatment-detail__benefits li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--text-sm);
+    color: var(--color-text-primary);
+}
+
+.benefit-icon {
+    color: var(--color-accent-teal);
+}
+
+.bg-warm {
+    background-color: var(--color-bg-warm-beige);
+}
+
+/* Resources Grid */
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.resource-card {
+    border-left: 4px solid var(--color-accent-teal);
+}
+
+/* Contact Page */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xl);
+}
+
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}

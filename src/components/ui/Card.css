@@ -1,0 +1,42 @@
+/* ===================================
+   CARD COMPONENT (OPTIMIZED)
+   =================================== */
+
+.card {
+    background-color: white;
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.card--hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ===================================
+   GLASS VARIANT (lighter blur)
+   =================================== */
+
+.card--glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* ===================================
+   GLOW EFFECT
+   =================================== */
+
+.card--glow {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card--glow:hover {
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.1),
+        0 0 40px rgba(157, 227, 218, 0.2);
+}
