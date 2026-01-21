@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 import Layout from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
 import { ScrollProgress } from './components/PremiumEffects';
+import WhatsAppButton from './components/WhatsAppButton';
 import Home from './pages/Home';
 import Treatments from './pages/Treatments';
 import Resources from './pages/Resources';
@@ -32,6 +33,7 @@ function App() {
     <Router>
       <ScrollProgress />
       <ScrollToTop />
+      <WhatsAppButton />
       <Layout>
         <AnimatedRoutes />
       </Layout>
