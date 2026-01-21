@@ -16,7 +16,7 @@ const DoctorIntro = () => {
                     viewport={{ once: true }}
                 >
                     <div className="doctor-intro__image-frame">
-                        <img src="/images/doctor.png" alt="Dr. Ananya Rao" className="doctor-intro__img" />
+                        <img src="/images/dr-krutika-bg.png" alt="Dr. Krutika Patankar" className="doctor-intro__img" />
                     </div>
                 </motion.div>
 
@@ -27,7 +27,7 @@ const DoctorIntro = () => {
                     whileInView="visible"
                     viewport={{ once: true }}
                 >
-                    <h2 className="doctor-intro__title">Meet Dr. Ananya Rao</h2>
+                    <h2 className="doctor-intro__title">Meet Dr. Krutika Patankar</h2>
                     <p className="doctor-intro__role">Lead Orthodontist & Founder</p>
                     <p className="doctor-intro__bio">
                         "I founded Heartstrings & Braces to bridge the gap between clinical excellence and compassionate care.
