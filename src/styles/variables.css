@@ -4,17 +4,19 @@
   --color-bg-warm-beige: #FDFCF8;
   --color-accent-mint: #E0EFEA;
   --color-accent-teal: #A4C3B2;
-  --color-accent-lavender: #E0DFEF; /* Slightly more muted lavender */
+  --color-accent-lavender: #E0DFEF;
+  /* Slightly more muted lavender */
   --color-text-primary: #1A1A1A;
   --color-text-secondary: #555555;
   --color-white: #FFFFFF;
-  --color-primary-action: #2C5F4D; /* Deep teal for buttons/actions */
+  --color-primary-action: #2C5F4D;
+  /* Deep teal for buttons/actions */
   --color-primary-action-hover: #1F4538;
 
   /* Typography */
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Lato', sans-serif;
-  
+
   /* Font Sizes */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
@@ -37,13 +39,31 @@
   --radius-md: 16px;
   --radius-lg: 32px;
   --radius-full: 9999px;
-  
+
   /* Shadows */
-  --shadow-sm: 0 4px 10px rgba(0,0,0,0.03);
-  --shadow-md: 0 10px 20px rgba(0,0,0,0.04);
-  --shadow-lg: 0 20px 40px rgba(0,0,0,0.05);
-  
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.05);
+
   /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 768px) {
+  :root {
+    /* Tighter Spacing for Mobile */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2.5rem;
+    /* Was 4rem */
+    --spacing-xl: 4rem;
+    /* Was 8rem - 50% reduction */
+
+    /* Slightly Adjusted Fonts */
+    --text-4xl: 2.5rem;
+    --text-3xl: 2rem;
+    --text-2xl: 1.5rem;
+  }
 }
