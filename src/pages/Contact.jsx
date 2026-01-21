@@ -23,7 +23,7 @@ const Contact = () => {
                             <MapPin className="text-teal" size={24} />
                             <div>
                                 <h4 style={{ fontWeight: '700' }}>Address</h4>
-                                <p>123 Calm Street, Bandra West<br />Mumbai, Maharashtra 400050</p>
+                                <p>Dr. Mayekar’s Oral Care Centre<br />1, Dadi Seth Road, Walkeshwar<br />Mumbai, Maharashtra 400006</p>
                             </div>
                         </div>
 
@@ -31,7 +31,7 @@ const Contact = () => {
                             <Phone className="text-teal" size={24} />
                             <div>
                                 <h4 style={{ fontWeight: '700' }}>Phone</h4>
-                                <p><a href="tel:+919876543210">+91 98765 43210</a></p>
+                                <p><a href="tel:+918591990660">+91 85919 90660</a></p>
                             </div>
                         </div>
 

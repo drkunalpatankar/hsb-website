@@ -20,7 +20,7 @@ const Footer = () => {
                 <div className="footer__info">
                     <div className="footer__item">
                         <MapPin size={18} className="footer__icon" />
-                        <p>123 Calm Street, Bandra West,<br />Mumbai, Maharashtra 400050</p>
+                        <p>Dr. Mayekar’s Oral Care Centre,<br />1, Dadi Seth Road, Walkeshwar,<br />Mumbai, Maharashtra 400006</p>
                     </div>
                     <div className="footer__item">
                         <Mail size={18} className="footer__icon" />
@@ -28,7 +28,7 @@ const Footer = () => {
                     </div>
                     <div className="footer__item">
                         <Phone size={18} className="footer__icon" />
-                        <a href="tel:+919876543210">+91 98765 43210</a>
+                        <a href="tel:+918591990660">+91 85919 90660</a>
                     </div>
                 </div>
 
