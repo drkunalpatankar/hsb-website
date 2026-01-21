@@ -105,6 +105,16 @@
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+    .navbar__logo {
+        font-size: 1.1rem;
+        white-space: nowrap;
+    }
+
+    .navbar__logo img {
+        height: 32px !important;
+        margin-right: 8px !important;
+    }
+
     .navbar__menu {
         display: none;
     }
