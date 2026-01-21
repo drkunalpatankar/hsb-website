@@ -34,52 +34,29 @@ const Hero = () => {
             </div>
 
             <div className="container hero__container">
-                <div className="hero__grid">
-                    <motion.div
-                        className="hero__content"
-                        variants={containerVariants}
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        <motion.h1 className="hero__title" variants={itemVariants}>
-                            Because every smile has a <span className="text-highlight">story</span> worth perfecting.
-                        </motion.h1>
+                <motion.div
+                    className="hero__content"
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                >
+                    <motion.h1 className="hero__title" variants={itemVariants}>
+                        Because every smile has a <span className="text-highlight">story</span> worth perfecting.
+                    </motion.h1>
 
-                        <motion.p className="hero__subtitle" variants={itemVariants}>
-                            Evidence-based orthodontics for all ages, delivered with clinical precision and emotional warmth.
-                        </motion.p>
+                    <motion.p className="hero__subtitle" variants={itemVariants}>
+                        Evidence-based orthodontics for all ages, delivered with clinical precision and emotional warmth.
+                    </motion.p>
 
-                        <motion.div className="hero__actions" variants={itemVariants}>
-                            <Link to="/contact">
-                                <Button variant="primary">Book Consultation</Button>
-                            </Link>
-                            <Link to="/treatments">
-                                <Button variant="outline">Explore Treatments</Button>
-                            </Link>
-                        </motion.div>
+                    <motion.div className="hero__actions" variants={itemVariants}>
+                        <Link to="/contact">
+                            <Button variant="primary">Book Consultation</Button>
+                        </Link>
+                        <Link to="/treatments">
+                            <Button variant="outline">Explore Treatments</Button>
+                        </Link>
                     </motion.div>
-
-                    {/* Desktop Hero Image */}
-                    <motion.div
-                        className="hero__visual"
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                    >
-                        <div className="hero__image-frame">
-                            <img src="/images/hero-smile.png" alt="Perfect Smile" className="hero__img" />
-
-                            {/* Floating Badge */}
-                            <div className="hero__badge">
-                                <div className="hero__badge-icon">✨</div>
-                                <div>
-                                    <span className="hero__badge-title">500+</span>
-                                    <span className="hero__badge-desc">Smiles Transformed</span>
-                                </div>
-                            </div>
-                        </div>
-                    </motion.div>
-                </div>
+                </motion.div>
             </div>
 
             {/* Scroll Indicator */}
