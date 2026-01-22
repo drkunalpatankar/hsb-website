@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom';
 import './Hero.css';
 import Button from './ui/Button';
 import { motion } from 'framer-motion';
+import { useBooking } from '../context/BookingContext';
 
 const Hero = () => {
+    const { openBooking } = useBooking();
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -49,9 +52,9 @@ const Hero = () => {
                     </motion.p>
 
                     <motion.div className="hero__actions" variants={itemVariants}>
-                        <Link to="/contact">
+                        <div onClick={openBooking}>
                             <Button variant="primary">Book Consultation</Button>
-                        </Link>
+                        </div>
                         <Link to="/treatments">
                             <Button variant="outline">Explore Treatments</Button>
                         </Link>

@@ -3,11 +3,13 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
 import Button from './ui/Button';
 import { Menu, X } from 'lucide-react';
+import { useBooking } from '../context/BookingContext';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const location = useLocation();
+    const { openBooking } = useBooking();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -52,9 +54,11 @@ const Navbar = () => {
                             {link.name}
                         </NavLink>
                     ))}
-                    <Button variant="primary" as={Link} to="/contact" onClick={() => { }}>
-                        <Link to="/contact" style={{ color: 'inherit' }}>Book Consultation</Link>
-                    </Button>
+                    <div onClick={openBooking}>
+                        <Button variant="primary">
+                            Book Consultation
+                        </Button>
+                    </div>
                 </div>
 
                 {/* Mobile Menu Toggle */}
@@ -79,15 +83,14 @@ const Navbar = () => {
                                 {link.name}
                             </NavLink>
                         ))}
-                        <Link
-                            to="/contact"
-                            onClick={() => setMobileMenuOpen(false)}
+                        <div
+                            onClick={() => { setMobileMenuOpen(false); openBooking(); }}
                             style={{ width: '100%', textAlign: 'center' }}
                         >
                             <Button variant="primary" style={{ width: '100%' }}>
                                 Book Consultation
                             </Button>
-                        </Link>
+                        </div>
                     </div>
                 )}
             </div>
