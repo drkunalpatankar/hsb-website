@@ -60,16 +60,35 @@ const Hero = () => {
                         </div>
                     </motion.div>
                 </motion.div>
-            </div>
+            </motion.div>
 
-            {/* Scroll Indicator */}
-            <div className="hero__scroll-indicator">
-                <div className="scroll-mouse">
-                    <div className="scroll-wheel" />
+            {/* Desktop-only Quiz Teaser Card */}
+            <motion.div
+                className="hero__quiz-teaser"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+            >
+                <div className="teaser-content">
+                    <div className="teaser-icon">🧩</div>
+                    <h3>Not sure what you need?</h3>
+                    <p>Take our 30-second assessment to find your perfect match.</p>
+                    <button onClick={openQuiz} className="btn-teaser">
+                        Start Smile Quiz →
+                    </button>
                 </div>
-                <span>Scroll to explore</span>
-            </div>
-        </section>
+                <div className="teaser-glow"></div>
+            </motion.div>
+        </div>
+
+            {/* Scroll Indicator */ }
+    <div className="hero__scroll-indicator">
+        <div className="scroll-mouse">
+            <div className="scroll-wheel" />
+        </div>
+        <span>Scroll to explore</span>
+    </div>
+        </section >
     );
 };
 
