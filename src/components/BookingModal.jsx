@@ -51,7 +51,7 @@ const BookingModal = ({ isOpen, onClose }) => {
 
         const title = "Consultation: Dr. Patankar";
         const details = `Purpose: ${purpose}`;
-        const location = "Dr. Mayekar's Oral Care Centre";
+        const location = "Dr. Mayekar’s Oral Care Centre, 1, Dadi Seth Road, Walkeshwar, Mumbai";
 
         return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formatDate(startTime)}/${formatDate(endTime)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
     };
