@@ -1,8 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { X, Calendar, Clock, User, Phone, FileText, CheckCircle, ExternalLink } from 'lucide-react';
+import { X, Calendar, Clock, User, Phone, FileText, CheckCircle, ExternalLink, MapPin } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from './ui/Button';
+import emailjs from '@emailjs/browser';
 import './BookingModal.css';
+
+// ⚠️ USER CONFIGURATION REQUIRED ⚠️
+// Please sign up at https://www.emailjs.com/
+// 1. Create a Service (connect your Hostinger SMTP) -> paste ID below
+// 2. Create an Email Template -> paste ID below
+// 3. Get your Public Key from Account -> paste below
+const EMAIL_CONFIG = {
+    SERVICE_ID: 'YOUR_SERVICE_ID', // e.g. 'service_xyz'
+    TEMPLATE_ID: 'YOUR_TEMPLATE_ID', // e.g. 'template_abc'
+    PUBLIC_KEY: 'YOUR_PUBLIC_KEY'   // e.g. 'user_123'
+};
 
 const BookingModal = ({ isOpen, onClose }) => {
     const [step, setStep] = useState('form'); // 'form', 'loading', 'success'
@@ -44,14 +56,39 @@ const BookingModal = ({ isOpen, onClose }) => {
         return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formatDate(startTime)}/${formatDate(endTime)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setStep('loading');
 
-        // Simulate API call
-        setTimeout(() => {
+        try {
+            // Prepare template parameters
+            const templateParams = {
+                patient_name: formData.name,
+                patient_phone: `+91 ${formData.phone}`,
+                patient_email: 'smile@hsb.care', // Or ask for email if needed
+                appointment_date: formData.date,
+                appointment_time: formData.time,
+                purpose: formData.purpose,
+                google_map_link: "https://maps.app.goo.gl/THidSknBavQqz8Re7"
+            };
+
+            // Send Email
+            // await emailjs.send(
+            //     EMAIL_CONFIG.SERVICE_ID,
+            //     EMAIL_CONFIG.TEMPLATE_ID,
+            //     templateParams,
+            //     EMAIL_CONFIG.PUBLIC_KEY
+            // );
+
+            // Simulate success for now until user adds keys
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
             setStep('success');
-        }, 1500);
+        } catch (error) {
+            console.error('Booking failed:', error);
+            alert("Something went wrong. Please call us directly.");
+            setStep('form');
+        }
     };
 
     if (!isOpen) return null;
@@ -97,14 +134,20 @@ const BookingModal = ({ isOpen, onClose }) => {
                                     </div>
                                     <div className="form-group">
                                         <label><Phone size={16} /> Phone Number</label>
-                                        <input
-                                            type="tel"
-                                            name="phone"
-                                            required
-                                            placeholder="+91 99999 99999"
-                                            value={formData.phone}
-                                            onChange={handleChange}
-                                        />
+                                        <div className="phone-input-wrapper">
+                                            <span className="phone-prefix">🇮🇳 +91</span>
+                                            <input
+                                                type="tel"
+                                                name="phone"
+                                                required
+                                                placeholder="99999 99999"
+                                                pattern="[0-9]{10}"
+                                                title="Please enter a valid 10-digit mobile number"
+                                                className="phone-input"
+                                                value={formData.phone}
+                                                onChange={handleChange}
+                                            />
+                                        </div>
                                     </div>
                                     <div className="form-row">
                                         <div className="form-group">
@@ -177,9 +220,19 @@ const BookingModal = ({ isOpen, onClose }) => {
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="btn-google-calendar"
+                                        style={{ marginBottom: '10px' }}
                                     >
                                         <Calendar size={18} /> Add to Google Calendar <ExternalLink size={14} />
                                     </a>
+                                </div>
+
+                                <div style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)' }}>
+                                    <p style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+                                        <MapPin size={16} />
+                                        <a href="https://maps.app.goo.gl/THidSknBavQqz8Re7" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary-action)', textDecoration: 'underline' }}>
+                                            Get Directions
+                                        </a>
+                                    </p>
                                 </div>
 
                                 <Button variant="outline" onClick={onClose}>Close</Button>
