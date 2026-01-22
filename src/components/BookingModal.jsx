@@ -31,6 +31,12 @@ const BookingModal = ({ isOpen, onClose }) => {
         if (isOpen) {
             setStep('form');
             setFormData({ name: '', phone: '', date: '', time: '', purpose: '' });
+            // Initialize EmailJS explicitly to be safe
+            try {
+                emailjs.init(EMAIL_CONFIG.PUBLIC_KEY);
+            } catch (initError) {
+                console.error("EmailJS Init Error:", initError);
+            }
         }
     }, [isOpen]);
 
@@ -38,22 +44,7 @@ const BookingModal = ({ isOpen, onClose }) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const generateCalendarLink = (dateStr = formData.date, timeStr = formData.time, purposeStr = formData.purpose) => {
-        // Simple logic to create a start/end time for Google Calendar
-        // Assuming 1 hour slot
-        if (!dateStr || !timeStr) return '#';
-
-        const startTime = new Date(`${dateStr}T${timeStr}`);
-        const endTime = new Date(startTime.getTime() + 60 * 60 * 1000); // +1 hour
-
-        const formatDate = (d) => d.toISOString().replace(/-|:|\.\d\d\d/g, "");
-
-        const title = "Consultation: Dr. Patankar";
-        const details = `Purpose: ${purposeStr}`;
-        const location = "Dr. Mayekar’s Oral Care Centre, 1, Dadi Seth Road, Walkeshwar, Mumbai";
-
-        return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formatDate(startTime)}/${formatDate(endTime)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
-    };
+    // ... (generateCalendarLink ... )
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -76,17 +67,19 @@ const BookingModal = ({ isOpen, onClose }) => {
             };
 
             // Send Email
-            await emailjs.send(
+            const response = await emailjs.send(
                 EMAIL_CONFIG.SERVICE_ID,
                 EMAIL_CONFIG.TEMPLATE_ID,
                 templateParams,
                 EMAIL_CONFIG.PUBLIC_KEY
             );
 
+            console.log('Email Sent!', response.status, response.text);
             setStep('success');
         } catch (error) {
             console.error('Booking failed:', error);
-            alert("Something went wrong. Please call us directly.");
+            const errorMessage = error?.text || error?.message || "Unknown error";
+            alert(`Booking Failed. Error: ${errorMessage}. Please check console or call us.`);
             setStep('form');
         }
     };
