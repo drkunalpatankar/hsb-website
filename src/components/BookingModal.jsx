@@ -13,7 +13,7 @@ import './BookingModal.css';
 const EMAIL_CONFIG = {
     SERVICE_ID: 'service_ajsts43',
     TEMPLATE_ID: 'template_k7pbmwn',
-    PUBLIC_KEY: 'P7tel0Rqns35Sxy66'
+    PUBLIC_KEY: 'P7teI0Rqns35Sxy66'
 };
 
 // Initialize globally
