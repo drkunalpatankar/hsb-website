@@ -23,7 +23,7 @@ const SmileAssessmentSection = () => {
                                 <Sparkles size={16} /> Free Self-Evaluation
                             </div>
                             <h2>Not sure which treatment is right for you?</h2>
-                            <p>Take our 30-second "Smile Quiz" to find out if you are a better candidate for **Invisible Aligners** or **Advanced Braces**.</p>
+                            <p>Take our 30-second "Smile Quiz" to find out if you are a better candidate for <strong>Invisible Aligners</strong> or <strong>Advanced Braces</strong>.</p>
 
                             <Button variant="primary" onClick={openQuiz} className="btn-assessment">
                                 Start Assessment <ArrowRight size={18} />
