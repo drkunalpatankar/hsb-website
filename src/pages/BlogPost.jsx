@@ -5,6 +5,7 @@ import '../styles/pages.css';
 import Button from '../components/ui/Button';
 import { ArrowLeft, Calendar, User } from 'lucide-react';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 
 const BlogPost = () => {
     const { id } = useParams();
@@ -16,6 +17,31 @@ const BlogPost = () => {
 
     const { icon: Icon } = blog;
 
+    const blogSchema = {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": blog.title,
+        "description": blog.summary,
+        "author": {
+            "@type": "Person",
+            "name": "Dr. Krutika Patankar",
+            "jobTitle": "Orthodontist"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "Heartstrings & Braces",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://heartstringsbraces.com/logo.png"
+            }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": `https://heartstringsbraces.com/resources/${blog.id}`
+        },
+        "datePublished": "2024-01-01", // Ideally this would come from blog data
+    };
+
     return (
         <motion.div
             className="page blog-post-page"
@@ -23,6 +49,11 @@ const BlogPost = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
         >
+            <SEO
+                title={blog.title}
+                description={blog.summary}
+                schema={blogSchema}
+            />
             <div className="container" style={{ maxWidth: '800px', padding: '120px 20px 60px' }}>
                 <Link to="/resources" style={{ display: 'inline-flex', alignItems: 'center', marginBottom: '30px', color: 'var(--color-text-secondary)', fontWeight: '500' }}>
                     <ArrowLeft size={16} style={{ marginRight: '8px' }} />
