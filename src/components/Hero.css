@@ -164,16 +164,18 @@
 .hero__quiz-teaser {
     position: absolute;
     right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 320px;
-    background: rgba(255, 255, 255, 0.7);
+    top: 5%;
+    /* Aligned higher up with the text */
+    /* Removed translateY center */
+    width: 340px;
+    background: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.9);
     border-radius: 24px;
     padding: 30px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+    /* Slightly stronger shadow */
     z-index: 10;
     overflow: hidden;
 }
