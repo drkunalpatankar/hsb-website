@@ -1,4 +1,3 @@
-```
 import React from 'react';
 import Hero from '../components/Hero';
 import Philosophy from '../components/Philosophy';
@@ -57,7 +56,7 @@ const Home = () => {
 
     return (
         <>
-            <SEO 
+            <SEO
                 title="Best Orthodontist in Mumbai | Invisible Aligners & Braces"
                 description="Transform your smile with Dr. Krutika Patankar at Heartstrings & Braces. Expert care in Invisible Aligners, Metal & Ceramic Braces in Walkeshwar, Mumbai."
                 schema={homeSchema}

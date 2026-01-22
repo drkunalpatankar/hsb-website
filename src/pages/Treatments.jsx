@@ -6,6 +6,7 @@ import { CheckCircle, ShieldCheck } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { pageTransition, fadeInUp, staggerContainer } from '../utils/animations';
 import { treatmentDetails } from '../data/treatmentDetails';
+import SEO from '../components/SEO';
 
 const DetailedSection = ({ id, title, subtitle, icon: Icon, intro, features, idealFor, process }) => (
     <section id={id} className="section treatment-detail-section">

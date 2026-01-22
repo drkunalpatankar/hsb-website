@@ -5,8 +5,18 @@ import '../components/Treatments.css';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '../utils/animations';
 import { Heart, Sliders, Users, Clock, ShieldCheck, Microscope } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const About = () => {
+    const doctorSchema = {
+        "@context": "https://schema.org",
+        "@type": "Physician",
+        "name": "Dr. Krutika Patankar",
+        "medicalSpecialty": "Orthodontics",
+        "description": "Consultant Orthodontist & Dentofacial Orthopedist committed to evidence-based practice and patient-centric care.",
+        "url": "https://heartstringsbraces.com/about"
+    };
+
     return (
         <motion.div
             className="page about-page"
@@ -14,6 +24,11 @@ const About = () => {
             animate="animate"
             exit="exit"
         >
+            <SEO
+                title="About Dr. Krutika Patankar | Orthodontist"
+                description="Learn about Dr. Krutika Patankar's evidence-based approach to orthodontics. Masters in Orthodontics & Dentofacial Orthopedics."
+                schema={doctorSchema}
+            />
             <section className="section page-header">
                 <div className="container">
                     <motion.h1 className="page-title" variants={fadeInUp}>Our Philosophy</motion.h1>

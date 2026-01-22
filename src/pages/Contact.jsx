@@ -2,10 +2,15 @@ import React from 'react';
 import '../styles/pages.css';
 import Button from '../components/ui/Button';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const Contact = () => {
     return (
         <div className="page contact-page">
+            <SEO
+                title="Contact Us | Book Your Consultation"
+                description="Visit Dr. Mayekar's Oral Care Centre in Walkeshwar, Mumbai. Call +91 85919 90660 or email smile@hsb.care."
+            />
             <section className="section page-header">
                 <div className="container">
                     <h1 className="page-title">Get in Touch</h1>

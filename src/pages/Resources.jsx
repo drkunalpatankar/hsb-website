@@ -5,6 +5,7 @@ import '../styles/pages.css';
 import Card from '../components/ui/Card';
 import Accordion from '../components/ui/Accordion';
 import { motion } from 'framer-motion';
+import SEO from '../components/SEO';
 
 const Resources = () => {
     const navigate = useNavigate();
@@ -16,6 +17,10 @@ const Resources = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
         >
+            <SEO
+                title="Patients Resources & Blog | Orthodontic Tips"
+                description="Read our latest guides on Life with Braces, Aligner Care, and Orthodontic Health. Frequently asked questions answered by Dr. Patankar."
+            />
             <section className="section page-header">
                 <div className="container">
                     <h1 className="page-title">Patient Resources</h1>
