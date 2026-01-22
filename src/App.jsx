@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { BookingProvider } from './context/BookingContext';
 import Layout from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
 import { ScrollProgress } from './components/PremiumEffects';
@@ -33,12 +34,14 @@ const AnimatedRoutes = () => {
 function App() {
   return (
     <Router>
-      <ScrollProgress />
-      <ScrollToTop />
-      <WhatsAppButton />
-      <Layout>
-        <AnimatedRoutes />
-      </Layout>
+      <BookingProvider>
+        <ScrollProgress />
+        <ScrollToTop />
+        <WhatsAppButton />
+        <Layout>
+          <AnimatedRoutes />
+        </Layout>
+      </BookingProvider>
     </Router>
   );
 }
