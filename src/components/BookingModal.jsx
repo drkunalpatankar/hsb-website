@@ -25,6 +25,7 @@ const BookingModal = ({ isOpen, onClose }) => {
     const [step, setStep] = useState('form'); // 'form', 'loading', 'success'
     const [formData, setFormData] = useState({
         name: '',
+        email: '',
         phone: '',
         date: '',
         time: '',
@@ -35,7 +36,7 @@ const BookingModal = ({ isOpen, onClose }) => {
     useEffect(() => {
         if (isOpen) {
             setStep('form');
-            setFormData({ name: '', phone: '', date: '', time: '', purpose: '' });
+            setFormData({ name: '', email: '', phone: '', date: '', time: '', purpose: '' });
         }
     }, [isOpen]);
 
@@ -71,6 +72,7 @@ const BookingModal = ({ isOpen, onClose }) => {
             // Prepare template parameters
             const templateParams = {
                 patient_name: formData.name,
+                email: formData.email,
                 patient_phone: `+91 ${formData.phone}`,
                 patient_email: 'smile@hsb.care', // Or ask for email if needed
                 appointment_date: formData.date,
@@ -138,6 +140,20 @@ const BookingModal = ({ isOpen, onClose }) => {
                                             value={formData.name}
                                             onChange={handleChange}
                                         />
+                                    </div>
+                                    <div className="form-group">
+                                        <label><FileText size={16} /> Email Address</label>
+                                        <input
+                                            type="email"
+                                            name="email"
+                                            required
+                                            placeholder="you@example.com"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                        />
+                                        <small style={{ color: '#666', fontSize: '0.8rem', marginTop: '4px', display: 'block' }}>
+                                            We'll send the appointment confirmation here.
+                                        </small>
                                     </div>
                                     <div className="form-group">
                                         <label><Phone size={16} /> Phone Number</label>
