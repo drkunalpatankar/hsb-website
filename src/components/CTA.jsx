@@ -1,8 +1,11 @@
 import React from 'react';
 import './CTA.css';
 import Button from './ui/Button';
+import { useBooking } from '../context/BookingContext';
 
 const CTA = () => {
+    const { openBooking } = useBooking();
+
     return (
         <section id="contact" className="section cta">
             <div className="container">
@@ -13,9 +16,11 @@ const CTA = () => {
                     </p>
                     <div className="cta__form-wrapper">
                         {/* Simple simulated form or just a button for now as per requirements asking for "Appointment booking CTA" */}
-                        <Button variant="primary" className="cta__button">
-                            Schedule Appointment
-                        </Button>
+                        <div onClick={openBooking}>
+                            <Button variant="primary" className="cta__button">
+                                Schedule Appointment
+                            </Button>
+                        </div>
                         <p className="cta__note">No referral needed. Adolescent & Adult consultations available.</p>
                     </div>
                 </div>
