@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { useBooking } from '../context/BookingContext';
 
 const Hero = () => {
-    const { openBooking } = useBooking();
+    const { openBooking, openQuiz } = useBooking();
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -55,9 +55,9 @@ const Hero = () => {
                         <div onClick={openBooking}>
                             <Button variant="primary">Book Consultation</Button>
                         </div>
-                        <Link to="/treatments">
-                            <Button variant="outline">Explore Treatments</Button>
-                        </Link>
+                        <div onClick={openQuiz}>
+                            <Button variant="outline">Take Smile Quiz 🧩</Button>
+                        </div>
                     </motion.div>
                 </motion.div>
             </div>
