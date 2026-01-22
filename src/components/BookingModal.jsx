@@ -76,12 +76,12 @@ const BookingModal = ({ isOpen, onClose }) => {
             };
 
             // Send Email
-            // await emailjs.send(
-            //     EMAIL_CONFIG.SERVICE_ID,
-            //     EMAIL_CONFIG.TEMPLATE_ID,
-            //     templateParams,
-            //     EMAIL_CONFIG.PUBLIC_KEY
-            // );
+            await emailjs.send(
+                EMAIL_CONFIG.SERVICE_ID,
+                EMAIL_CONFIG.TEMPLATE_ID,
+                templateParams,
+                EMAIL_CONFIG.PUBLIC_KEY
+            );
 
             // Simulate success for now until user adds keys
             await new Promise(resolve => setTimeout(resolve, 1500));
