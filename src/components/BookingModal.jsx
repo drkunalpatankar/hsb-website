@@ -16,6 +16,11 @@ const EMAIL_CONFIG = {
     PUBLIC_KEY: 'P7tel0Rqns35Sxy66'
 };
 
+// Initialize globally
+emailjs.init({
+    publicKey: EMAIL_CONFIG.PUBLIC_KEY,
+});
+
 const BookingModal = ({ isOpen, onClose }) => {
     const [step, setStep] = useState('form'); // 'form', 'loading', 'success'
     const [formData, setFormData] = useState({
@@ -31,12 +36,6 @@ const BookingModal = ({ isOpen, onClose }) => {
         if (isOpen) {
             setStep('form');
             setFormData({ name: '', phone: '', date: '', time: '', purpose: '' });
-            // Initialize EmailJS explicitly to be safe
-            try {
-                emailjs.init(EMAIL_CONFIG.PUBLIC_KEY);
-            } catch (initError) {
-                console.error("EmailJS Init Error:", initError);
-            }
         }
     }, [isOpen]);
 
