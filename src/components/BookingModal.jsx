@@ -83,9 +83,6 @@ const BookingModal = ({ isOpen, onClose }) => {
                 EMAIL_CONFIG.PUBLIC_KEY
             );
 
-            // Simulate success for now until user adds keys
-            await new Promise(resolve => setTimeout(resolve, 1500));
-
             setStep('success');
         } catch (error) {
             console.error('Booking failed:', error);
