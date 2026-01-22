@@ -210,3 +210,41 @@
         gap: 20px;
     }
 }
+
+/* Phone Input Styling */
+.phone-input-wrapper {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding-left: 12px;
+    transition: all 0.3s ease;
+}
+
+.phone-input-wrapper:focus-within {
+    border-color: var(--color-accent-teal);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(100, 210, 195, 0.1);
+}
+
+.phone-prefix {
+    font-weight: 600;
+    color: var(--color-text-primary);
+    padding-right: 8px;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 1rem;
+}
+
+.phone-input {
+    flex: 1;
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 12px !important;
+}
+
+.phone-input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
