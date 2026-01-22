@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import BookingModal from '../components/BookingModal';
+import SmileQuiz from '../components/SmileQuiz';
 
 const BookingContext = createContext();
 
@@ -13,14 +14,35 @@ export const useBooking = () => {
 
 export const BookingProvider = ({ children }) => {
     const [isBookingOpen, setIsBookingOpen] = useState(false);
+    const [isQuizOpen, setIsQuizOpen] = useState(false);
+    const [bookingPurpose, setBookingPurpose] = useState('');
 
-    const openBooking = () => setIsBookingOpen(true);
-    const closeBooking = () => setIsBookingOpen(false);
+    const openBooking = (purpose = '') => {
+        setBookingPurpose(purpose);
+        setIsBookingOpen(true);
+    };
+
+    const closeBooking = () => {
+        setIsBookingOpen(false);
+        setBookingPurpose('');
+    };
+
+    const openQuiz = () => setIsQuizOpen(true);
+    const closeQuiz = () => setIsQuizOpen(false);
 
     return (
-        <BookingContext.Provider value={{ openBooking, closeBooking }}>
+        <BookingContext.Provider value={{ openBooking, closeBooking, openQuiz, closeQuiz }}>
             {children}
-            <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
+            <BookingModal isOpen={isBookingOpen} onClose={closeBooking} initialPurpose={bookingPurpose} />
+            <SmileQuiz
+                isOpen={isQuizOpen}
+                onClose={closeQuiz}
+                onBook={(result) => {
+                    closeQuiz();
+                    // Small delay to allow quiz to close smoothly
+                    setTimeout(() => openBooking(result), 300);
+                }}
+            />
         </BookingContext.Provider>
     );
 };

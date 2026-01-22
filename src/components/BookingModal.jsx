@@ -21,7 +21,7 @@ emailjs.init({
     publicKey: EMAIL_CONFIG.PUBLIC_KEY,
 });
 
-const BookingModal = ({ isOpen, onClose }) => {
+const BookingModal = ({ isOpen, onClose, initialPurpose = '' }) => {
     const [step, setStep] = useState('form'); // 'form', 'loading', 'success'
     const [formData, setFormData] = useState({
         name: '',
@@ -36,9 +36,16 @@ const BookingModal = ({ isOpen, onClose }) => {
     useEffect(() => {
         if (isOpen) {
             setStep('form');
-            setFormData({ name: '', email: '', phone: '', date: '', time: '', purpose: '' });
+            setFormData({
+                name: '',
+                email: '',
+                phone: '',
+                date: '',
+                time: '',
+                purpose: initialPurpose || '' // Use prop if available
+            });
         }
-    }, [isOpen]);
+    }, [isOpen, initialPurpose]);
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
