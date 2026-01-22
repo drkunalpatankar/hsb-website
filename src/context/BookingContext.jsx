@@ -18,7 +18,10 @@ export const BookingProvider = ({ children }) => {
     const [bookingPurpose, setBookingPurpose] = useState('');
 
     const openBooking = (purpose = '') => {
-        setBookingPurpose(purpose);
+        // Safeguard: If called via onClick without args, purpose will be the Event object.
+        // We only want strings.
+        const validPurpose = (typeof purpose === 'string') ? purpose : '';
+        setBookingPurpose(validPurpose);
         setIsBookingOpen(true);
     };
 
