@@ -245,6 +245,13 @@
     }
 }
 
+/* Hide Button on Desktop (since we have the card) */
+@media (min-width: 1025px) {
+    .hero__mobile-only-btn {
+        display: none;
+    }
+}
+
 /* ===================================
    RESPONSIVE
    =================================== */

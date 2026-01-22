@@ -56,7 +56,7 @@ const Hero = () => {
                         <div onClick={openBooking}>
                             <Button variant="primary">Book Consultation</Button>
                         </div>
-                        <div onClick={openQuiz}>
+                        <div onClick={openQuiz} className="hero__mobile-only-btn">
                             <Button variant="outline">Take Smile Quiz 🧩</Button>
                         </div>
                     </motion.div>
