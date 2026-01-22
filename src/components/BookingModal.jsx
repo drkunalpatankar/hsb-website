@@ -11,9 +11,9 @@ import './BookingModal.css';
 // 2. Create an Email Template -> paste ID below
 // 3. Get your Public Key from Account -> paste below
 const EMAIL_CONFIG = {
-    SERVICE_ID: 'YOUR_SERVICE_ID', // e.g. 'service_xyz'
-    TEMPLATE_ID: 'YOUR_TEMPLATE_ID', // e.g. 'template_abc'
-    PUBLIC_KEY: 'YOUR_PUBLIC_KEY'   // e.g. 'user_123'
+    SERVICE_ID: 'service_ajsts43',
+    TEMPLATE_ID: 'template_k7pbmwn',
+    PUBLIC_KEY: 'P7tel0Rqns35Sxy66'
 };
 
 const BookingModal = ({ isOpen, onClose }) => {
