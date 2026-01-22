@@ -65,6 +65,43 @@ const TreatmentsPage = () => {
         }
     }, [location]);
 
+    // SEO Data
+    const treatmentSchema = [
+        // 1. MedicalBusiness / Dentist Root
+        {
+            "@context": "https://schema.org",
+            "@type": "Dentist",
+            "name": "Heartstrings & Braces",
+            "image": "https://heartstringsbraces.com/logo.png",
+            "url": "https://heartstringsbraces.com",
+            "telephone": "+918591990660",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "1, Dadi Seth Road, Walkeshwar",
+                "addressLocality": "Mumbai",
+                "addressRegion": "Maharashtra",
+                "postalCode": "400006",
+                "addressCountry": "IN"
+            }
+        },
+        // 2. Service Schema for each treatment
+        ...treatmentDetails.map(t => ({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "serviceType": t.title,
+            "provider": {
+                "@type": "Dentist",
+                "name": "Heartstrings & Braces"
+            },
+            "areaServed": {
+                "@type": "City",
+                "name": "Mumbai"
+            },
+            "description": t.intro,
+            "url": `https://heartstringsbraces.com/treatments#${t.id}`
+        }))
+    ];
+
     return (
         <motion.div
             className="page treatments-page-rich"
@@ -73,6 +110,14 @@ const TreatmentsPage = () => {
             exit="exit"
             variants={pageTransition}
         >
+            <SEO
+                title="Orthodontic Services | Braces & Aligners"
+                description="Comprehensive orthodontic treatments in Mumbai. From metal and ceramic braces to invisible aligners and retention care."
+                keywords="metal braces, ceramic braces, clear aligners, invisalign, adult orthodontics, retainers, mumbai orthodontist"
+                canonical="https://heartstringsbraces.com/treatments"
+                schema={treatmentSchema}
+            />
+
             <section className="section page-header">
                 <div className="container">
                     <motion.h1 className="page-title" variants={fadeInUp}>Our Treatments</motion.h1>

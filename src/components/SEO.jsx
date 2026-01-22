@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 const SEO = ({
     title,
     description,
+    keywords,
     canonical,
     openGraph,
     schema
@@ -12,12 +13,14 @@ const SEO = ({
     const fullTitle = title ? `${title} | Heartstrings & Braces` : siteTitle;
     const metaDescription = description || "Expert orthodontic care in Mumbai. Specialized in invisible aligners, metal braces, and ceramic braces for children, teens, and adults.";
     const currentUrl = canonical || window.location.href;
+    const metaKeywords = keywords || "orthodontist, braces, invisible aligners, invisalign, mumbai, dentist, smile transformation";
 
     return (
         <Helmet>
             {/* Standard Metadata */}
             <title>{fullTitle}</title>
             <meta name="description" content={metaDescription} />
+            <meta name="keywords" content={metaKeywords} />
             <link rel="canonical" href={currentUrl} />
 
             {/* Open Graph / Facebook */}
@@ -26,12 +29,13 @@ const SEO = ({
             <meta property="og:description" content={openGraph?.description || metaDescription} />
             <meta property="og:url" content={currentUrl} />
             <meta property="og:site_name" content="Heartstrings & Braces" />
-            <meta property="og:image" content={openGraph?.image || "https://heartstringsbraces.com/og-image.jpg"} /> {/* TODO: Add real OG Image */}
+            <meta property="og:image" content={openGraph?.image || "https://heartstringsbraces.com/og-image.jpg"} />
 
             {/* Twitter */}
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={title || siteTitle} />
             <meta name="twitter:description" content={metaDescription} />
+            <meta name="twitter:image" content={openGraph?.image || "https://heartstringsbraces.com/og-image.jpg"} />
 
             {/* Structured Data (Schema.org) */}
             {schema && (

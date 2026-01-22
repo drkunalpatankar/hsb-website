@@ -24,7 +24,7 @@ async function generateSitemap() {
         .map(file => {
             const name = path.basename(file, '.jsx');
             if (name === 'Home') return '/';
-            if (name === 'NotFound') return null; // Exclude 404
+            if (name === 'NotFound' || name === 'BlogPost') return null; // Exclude special pages
             return `/${name.toLowerCase()}`;
         })
         .filter(Boolean);

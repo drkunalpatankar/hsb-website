@@ -8,14 +8,26 @@ import { Heart, Sliders, Users, Clock, ShieldCheck, Microscope } from 'lucide-re
 import SEO from '../components/SEO';
 
 const About = () => {
-    const doctorSchema = {
-        "@context": "https://schema.org",
-        "@type": "Physician",
-        "name": "Dr. Krutika Patankar",
-        "medicalSpecialty": "Orthodontics",
-        "description": "Consultant Orthodontist & Dentofacial Orthopedist committed to evidence-based practice and patient-centric care.",
-        "url": "https://heartstringsbraces.com/about"
-    };
+    const aboutSchema = [
+        {
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "name": "About Dr. Krutika Patankar",
+            "description": "Learn about Dr. Krutika Patankar's evidence-based approach to orthodontics."
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "Physician",
+            "name": "Dr. Krutika Patankar",
+            "medicalSpecialty": "Orthodontics",
+            "description": "Consultant Orthodontist & Dentofacial Orthopedist committed to evidence-based practice and patient-centric care.",
+            "url": "https://heartstringsbraces.com/about",
+            "worksFor": {
+                "@type": "MedicalBusiness",
+                "name": "Heartstrings & Braces"
+            }
+        }
+    ];
 
     return (
         <motion.div
@@ -27,7 +39,9 @@ const About = () => {
             <SEO
                 title="About Dr. Krutika Patankar | Orthodontist"
                 description="Learn about Dr. Krutika Patankar's evidence-based approach to orthodontics. Masters in Orthodontics & Dentofacial Orthopedics."
-                schema={doctorSchema}
+                keywords="dr krutika patankar, orthodontist profile, heartstrings braces doctor, best orthodontist mumbai, dentofacial orthopedics"
+                canonical="https://heartstringsbraces.com/about"
+                schema={aboutSchema}
             />
             <section className="section page-header">
                 <div className="container">

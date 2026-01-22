@@ -5,11 +5,60 @@ import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const Contact = () => {
+    const contactSchema = [
+        {
+            "@context": "https://schema.org",
+            "@type": "MedicalBusiness",
+            "name": "Heartstrings & Braces",
+            "image": "https://heartstringsbraces.com/logo.png",
+            "url": "https://heartstringsbraces.com/contact",
+            "telephone": "+918591990660",
+            "email": "smile@hsb.care",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "1, Dadi Seth Road, Walkeshwar",
+                "addressLocality": "Mumbai",
+                "addressRegion": "Maharashtra",
+                "postalCode": "400006",
+                "addressCountry": "IN"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "18.9551139",
+                "longitude": "72.8048399"
+            },
+            "openingHoursSpecification": [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                    "opens": "10:00",
+                    "closes": "19:00"
+                }
+            ],
+            "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+918591990660",
+                "contactType": "customer service",
+                "areaServed": "IN",
+                "availableLanguage": ["English", "Hindi", "Marathi"]
+            }
+        },
+        {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact Heartstrings & Braces",
+            "description": "Get in touch with Dr. Krutika Patankar for orthodontic consultation."
+        }
+    ];
+
     return (
         <div className="page contact-page">
             <SEO
                 title="Contact Us | Book Your Consultation"
                 description="Visit Dr. Mayekar's Oral Care Centre in Walkeshwar, Mumbai. Call +91 85919 90660 or email smile@hsb.care."
+                keywords="contact orthodontist mumbai, book braces consultation, walkeshwar dentist, heartstrings braces contact"
+                canonical="https://heartstringsbraces.com/contact"
+                schema={contactSchema}
             />
             <section className="section page-header">
                 <div className="container">

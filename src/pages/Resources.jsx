@@ -20,6 +20,15 @@ const Resources = () => {
             <SEO
                 title="Patients Resources & Blog | Orthodontic Tips"
                 description="Read our latest guides on Life with Braces, Aligner Care, and Orthodontic Health. Frequently asked questions answered by Dr. Patankar."
+                keywords="orthodontic blog, braces tips, invisalign guide, life with braces, patient resources, hsb blog"
+                canonical="https://heartstringsbraces.com/resources"
+                schema={{
+                    "@context": "https://schema.org",
+                    "@type": "CollectionPage",
+                    "name": "Heartstrings & Braces Resources",
+                    "description": "Educational resources and articles about orthodontic care.",
+                    "url": "https://heartstringsbraces.com/resources"
+                }}
             />
             <section className="section page-header">
                 <div className="container">

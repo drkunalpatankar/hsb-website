@@ -59,6 +59,7 @@ const Home = () => {
             <SEO
                 title="Best Orthodontist in Mumbai | Invisible Aligners & Braces"
                 description="Transform your smile with Dr. Krutika Patankar at Heartstrings & Braces. Expert care in Invisible Aligners, Metal & Ceramic Braces in Walkeshwar, Mumbai."
+                keywords="orthodontist mumbai, invisible aligners, braces cost mumbai, teeth straightening, dr krutika patankar, best dentist walkeshwar"
                 schema={homeSchema}
             />
             <Hero />

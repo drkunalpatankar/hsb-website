@@ -25,7 +25,8 @@ const BlogPost = () => {
         "author": {
             "@type": "Person",
             "name": "Dr. Krutika Patankar",
-            "jobTitle": "Orthodontist"
+            "jobTitle": "Orthodontist",
+            "url": "https://heartstringsbraces.com/about"
         },
         "publisher": {
             "@type": "Organization",
@@ -39,7 +40,8 @@ const BlogPost = () => {
             "@type": "WebPage",
             "@id": `https://heartstringsbraces.com/resources/${blog.id}`
         },
-        "datePublished": "2024-01-01", // Ideally this would come from blog data
+        "datePublished": "2024-01-01", // Fallback date
+        "image": "https://heartstringsbraces.com/og-image.jpg"
     };
 
     return (
@@ -52,6 +54,13 @@ const BlogPost = () => {
             <SEO
                 title={blog.title}
                 description={blog.summary}
+                keywords={`${blog.title}, orthodontics, braces tips, heartstrings braces blog`}
+                canonical={`https://heartstringsbraces.com/resources/${blog.id}`}
+                openGraph={{
+                    title: blog.title,
+                    description: blog.summary,
+                    type: 'article'
+                }}
                 schema={blogSchema}
             />
             <div className="container" style={{ maxWidth: '800px', padding: '120px 20px 60px' }}>
