@@ -17,66 +17,61 @@ const Contact = () => {
                 <div className="container contact-grid">
                     {/* Info Column */}
                     <div>
-                        <h2 style={{ fontFamily: 'var(--font-serif)', marginBottom: '20px', fontSize: '2rem' }}>Visit Us</h2>
+                        <h2 style={{ fontFamily: 'var(--font-serif)', marginBottom: '30px', fontSize: '2.5rem' }}>Visit Us</h2>
 
-                        <div className="contact-item" style={{ display: 'flex', gap: '15px', marginBottom: '20px' }}>
-                            <MapPin className="text-teal" size={24} />
+                        <div className="contact-item" style={{ display: 'flex', gap: '20px', marginBottom: '30px' }}>
+                            <MapPin className="text-teal" size={28} />
                             <div>
-                                <h4 style={{ fontWeight: '700' }}>Address</h4>
-                                <p>Dr. Mayekar’s Oral Care Centre<br />1, Dadi Seth Road, Walkeshwar<br />Mumbai, Maharashtra 400006</p>
+                                <h4 style={{ fontWeight: '700', marginBottom: '8px' }}>Address</h4>
+                                <p style={{ lineHeight: '1.6' }}>Dr. Mayekar’s Oral Care Centre<br />1, Dadi Seth Road, Walkeshwar<br />Mumbai, Maharashtra 400006</p>
                             </div>
                         </div>
 
-                        <div className="contact-item" style={{ display: 'flex', gap: '15px', marginBottom: '20px' }}>
-                            <Phone className="text-teal" size={24} />
+                        <div className="contact-item" style={{ display: 'flex', gap: '20px', marginBottom: '30px' }}>
+                            <Phone className="text-teal" size={28} />
                             <div>
-                                <h4 style={{ fontWeight: '700' }}>Phone</h4>
-                                <p><a href="tel:+918591990660">+91 85919 90660</a></p>
+                                <h4 style={{ fontWeight: '700', marginBottom: '8px' }}>Phone</h4>
+                                <p><a href="tel:+918591990660" className="hover-link">+91 85919 90660</a></p>
                             </div>
                         </div>
 
-                        <div className="contact-item" style={{ display: 'flex', gap: '15px', marginBottom: '20px' }}>
-                            <Mail className="text-teal" size={24} />
+                        <div className="contact-item" style={{ display: 'flex', gap: '20px', marginBottom: '30px' }}>
+                            <Mail className="text-teal" size={28} />
                             <div>
-                                <h4 style={{ fontWeight: '700' }}>Email</h4>
-                                <p><a href="mailto:hello@heartstringsbraces.com">hello@heartstringsbraces.com</a></p>
+                                <h4 style={{ fontWeight: '700', marginBottom: '8px' }}>Email</h4>
+                                <p><a href="mailto:smile@hsb.care" className="hover-link">smile@hsb.care</a></p>
                             </div>
                         </div>
 
-                        <div className="contact-item" style={{ display: 'flex', gap: '15px', marginBottom: '20px' }}>
-                            <Clock className="text-teal" size={24} />
+                        <div className="contact-item" style={{ display: 'flex', gap: '20px', marginBottom: '30px' }}>
+                            <Clock className="text-teal" size={28} />
                             <div>
-                                <h4 style={{ fontWeight: '700' }}>Hours</h4>
+                                <h4 style={{ fontWeight: '700', marginBottom: '8px' }}>Hours</h4>
                                 <p>Mon - Sat: 10:00 AM - 7:00 PM<br />Sun: Closed</p>
                             </div>
                         </div>
                     </div>
 
-                    {/* Form Column */}
-                    <div style={{ backgroundColor: 'white', padding: 'var(--spacing-lg)', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-sm)' }}>
-                        <h2 style={{ fontFamily: 'var(--font-serif)', marginBottom: '20px' }}>Send a Message</h2>
-                        <form style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                            <div>
-                                <label style={{ display: 'block', fontSize: '0.9rem', marginBottom: '5px', fontWeight: 'bold' }}>Name</label>
-                                <input type="text" style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #ccc' }} placeholder="Your Name" />
-                            </div>
-                            <div>
-                                <label style={{ display: 'block', fontSize: '0.9rem', marginBottom: '5px', fontWeight: 'bold' }}>Phone</label>
-                                <input type="tel" style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #ccc' }} placeholder="Your Number" />
-                            </div>
-                            <div>
-                                <label style={{ display: 'block', fontSize: '0.9rem', marginBottom: '5px', fontWeight: 'bold' }}>Message</label>
-                                <textarea rows="4" style={{ width: '100%', padding: '10px', borderRadius: '8px', border: '1px solid #ccc' }} placeholder="How can we help?"></textarea>
-                            </div>
-                            <Button variant="primary" style={{ marginTop: '10px' }}>Send Inquiry</Button>
-                        </form>
+                    {/* Map Column */}
+                    <div style={{
+                        height: '100%',
+                        minHeight: '400px',
+                        borderRadius: 'var(--radius-lg)',
+                        overflow: 'hidden',
+                        boxShadow: 'var(--shadow-md)'
+                    }}>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.883719875147!2d72.7986063!3d18.9566675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1e1f1c7d2d3%3A0x6b8f7f7f7f7f7f7f!2sDr.+Mayekar's+Oral+Care+Centre!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                            width="100%"
+                            height="100%"
+                            style={{ border: 0, minHeight: '400px' }}
+                            allowFullScreen=""
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="Clinic Location"
+                        ></iframe>
                     </div>
                 </div>
-            </section>
-
-            {/* Map Placeholder */}
-            <section className="section" style={{ padding: 0, height: '400px', backgroundColor: '#eee', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <p style={{ color: '#999' }}>Detailed Google Map Embed Would Go Here</p>
             </section>
         </div>
     );

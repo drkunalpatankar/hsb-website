@@ -24,7 +24,7 @@ const Footer = () => {
                     </div>
                     <div className="footer__item">
                         <Mail size={18} className="footer__icon" />
-                        <a href="mailto:hello@heartstringsbraces.com">hello@heartstringsbraces.com</a>
+                        <a href="mailto:smile@hsb.care">smile@hsb.care</a>
                     </div>
                     <div className="footer__item">
                         <Phone size={18} className="footer__icon" />
