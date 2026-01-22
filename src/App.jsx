@@ -8,6 +8,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 import Home from './pages/Home';
 import Treatments from './pages/Treatments';
 import Resources from './pages/Resources';
+import BlogPost from './pages/BlogPost';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import './styles/premium.css';
@@ -21,6 +22,7 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/treatments" element={<Treatments />} />
         <Route path="/resources" element={<Resources />} />
+        <Route path="/resources/:id" element={<BlogPost />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
