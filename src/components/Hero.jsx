@@ -66,11 +66,25 @@ const Hero = () => {
                 <motion.div
                     className="hero__quiz-teaser"
                     initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.5, duration: 0.8 }}
+                    animate={{
+                        opacity: 1,
+                        x: 0,
+                        y: [0, -12, 0]
+                    }}
+                    transition={{
+                        opacity: { delay: 0.5, duration: 0.8 },
+                        x: { delay: 0.5, duration: 0.8 },
+                        y: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                    }}
                 >
                     <div className="teaser-content">
-                        <div className="teaser-icon">🧩</div>
+                        <motion.div
+                            className="teaser-icon"
+                            animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.1, 1] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                            🧩
+                        </motion.div>
                         <h3>Not sure what you need?</h3>
                         <p>Take our 30-second assessment to find your perfect match.</p>
                         <button onClick={openQuiz} className="btn-teaser">
