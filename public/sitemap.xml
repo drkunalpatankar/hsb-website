@@ -16,6 +16,11 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://heartstringsbraces.com/doctorprofile</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://heartstringsbraces.com/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

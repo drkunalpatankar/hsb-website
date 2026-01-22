@@ -13,7 +13,7 @@ const Footer = () => {
                     </div>
                     <p className="footer__tagline">Evidence-based orthodontics for all ages.</p>
                     <div className="footer__socials">
-                        <a href="#" aria-label="Instagram"><Instagram size={20} /></a>
+                        <a href="https://www.instagram.com/heartstringsbraces" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={20} /></a>
                     </div>
                 </div>
 

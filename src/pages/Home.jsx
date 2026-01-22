@@ -50,7 +50,7 @@ const Home = () => {
             }
         ],
         "sameAs": [
-            "https://www.instagram.com/heartstrings_and_braces/"
+            "https://www.instagram.com/heartstringsbraces/"
         ]
     };
 

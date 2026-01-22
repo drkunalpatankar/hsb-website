@@ -11,7 +11,9 @@ import Treatments from './pages/Treatments';
 import Resources from './pages/Resources';
 import BlogPost from './pages/BlogPost';
 import About from './pages/About';
+
 import Contact from './pages/Contact';
+import DoctorProfile from './pages/DoctorProfile';
 import './styles/premium.css';
 
 const AnimatedRoutes = () => {
@@ -25,6 +27,7 @@ const AnimatedRoutes = () => {
         <Route path="/resources" element={<Resources />} />
         <Route path="/resources/:id" element={<BlogPost />} />
         <Route path="/about" element={<About />} />
+        <Route path="/doctor-profile" element={<DoctorProfile />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </AnimatePresence>

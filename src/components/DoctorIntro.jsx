@@ -38,9 +38,12 @@ const DoctorIntro = () => {
                         <p>• Certified Invisalign Provider</p>
                         <p>• 10+ Years of Clinical Experience</p>
                     </div>
-                    <Button variant="outline" className="doctor-intro__cta">
-                        Read Full Profile
-                    </Button>
+
+                    <a href="/doctor-profile" style={{ textDecoration: 'none' }}>
+                        <Button variant="outline" className="doctor-intro__cta">
+                            Read Full Profile
+                        </Button>
+                    </a>
                 </motion.div>
             </div>
         </section>
