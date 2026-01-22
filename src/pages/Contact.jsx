@@ -61,14 +61,14 @@ const Contact = () => {
                         boxShadow: 'var(--shadow-md)'
                     }}>
                         <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.883719875147!2d72.7986063!3d18.9566675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7d1e1f1c7d2d3%3A0x6b8f7f7f7f7f7f7f!2sDr.+Mayekar's+Oral+Care+Centre!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.4637952358007!2d72.80483987546359!3d18.955113855756004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7cf2e33761e83%3A0x32dc1881bed28ede!2sHeartstrings%20%26%20Braces%20-%20Dr%20Krutika%20Patankar!5e0!3m2!1sen!2sin!4v1769062907090!5m2!1sen!2sin"
                             width="100%"
                             height="100%"
                             style={{ border: 0, minHeight: '400px' }}
                             allowFullScreen=""
                             loading="lazy"
                             referrerPolicy="no-referrer-when-downgrade"
-                            title="Clinic Location"
+                            title="Heartstrings & Braces Location"
                         ></iframe>
                     </div>
                 </div>
