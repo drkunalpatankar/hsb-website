@@ -1,0 +1,137 @@
+.smile-assessment-section {
+    padding: 80px 0;
+    position: relative;
+}
+
+.assessment-card {
+    background: linear-gradient(135deg, var(--color-bg-mint-light) 0%, #fff 100%);
+    border-radius: 32px;
+    padding: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    border: 1px solid rgba(100, 210, 195, 0.2);
+    box-shadow: 0 20px 40px rgba(27, 75, 67, 0.05);
+    overflow: hidden;
+    position: relative;
+}
+
+.assessment-content {
+    flex: 1;
+    max-width: 600px;
+    z-index: 2;
+}
+
+.assessment-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    color: var(--color-primary-action);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.assessment-content h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    color: var(--color-text-primary);
+    margin-bottom: 15px;
+}
+
+.assessment-content p {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.assessment-visual {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visual-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--color-accent-teal);
+    opacity: 0.1;
+    border-radius: 50%;
+    animation: pulse 3s infinite ease-in-out;
+}
+
+.visual-icon {
+    font-family: var(--font-serif);
+    font-size: 8rem;
+    color: var(--color-primary-action);
+    opacity: 0.2;
+    transform: rotate(15deg);
+}
+
+.btn-assessment {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.1;
+    }
+
+    50% {
+        transform: scale(1.05);
+        opacity: 0.15;
+    }
+
+    100% {
+        transform: scale(0.95);
+        opacity: 0.1;
+    }
+}
+
+@media (max-width: 900px) {
+    .assessment-card {
+        flex-direction: column;
+        padding: 40px 30px;
+        text-align: center;
+    }
+
+    .assessment-content {
+        max-width: 100%;
+    }
+
+    .assessment-content h2 {
+        font-size: 2rem;
+    }
+
+    .assessment-badge {
+        margin: 0 auto 20px auto;
+    }
+
+    .btn-assessment {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .assessment-visual {
+        width: 200px;
+        height: 200px;
+        margin-top: -20px;
+    }
+
+    .visual-icon {
+        font-size: 6rem;
+    }
+}
