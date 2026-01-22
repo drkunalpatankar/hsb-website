@@ -69,13 +69,17 @@ const BookingModal = ({ isOpen, onClose }) => {
             // Generate link for email
             const calLink = generateCalendarLink();
 
+            // Format date to DD/MM/YYYY
+            const [year, month, day] = formData.date.split('-');
+            const formattedDate = `${day}/${month}/${year}`;
+
             // Prepare template parameters
             const templateParams = {
                 patient_name: formData.name,
                 email: formData.email,
                 patient_phone: `+91 ${formData.phone}`,
                 patient_email: 'smile@hsb.care', // Or ask for email if needed
-                appointment_date: formData.date,
+                appointment_date: formattedDate,
                 appointment_time: formData.time,
                 purpose: formData.purpose,
                 google_map_link: "https://maps.app.goo.gl/THidSknBavQqz8Re7",
