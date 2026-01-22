@@ -38,19 +38,18 @@ const BookingModal = ({ isOpen, onClose }) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const generateCalendarLink = () => {
-        const { date, time, purpose } = formData;
+    const generateCalendarLink = (dateStr = formData.date, timeStr = formData.time, purposeStr = formData.purpose) => {
         // Simple logic to create a start/end time for Google Calendar
         // Assuming 1 hour slot
-        if (!date || !time) return '#';
+        if (!dateStr || !timeStr) return '#';
 
-        const startTime = new Date(`${date}T${time}`);
+        const startTime = new Date(`${dateStr}T${timeStr}`);
         const endTime = new Date(startTime.getTime() + 60 * 60 * 1000); // +1 hour
 
         const formatDate = (d) => d.toISOString().replace(/-|:|\.\d\d\d/g, "");
 
         const title = "Consultation: Dr. Patankar";
-        const details = `Purpose: ${purpose}`;
+        const details = `Purpose: ${purposeStr}`;
         const location = "Dr. Mayekar’s Oral Care Centre, 1, Dadi Seth Road, Walkeshwar, Mumbai";
 
         return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${formatDate(startTime)}/${formatDate(endTime)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
@@ -61,6 +60,9 @@ const BookingModal = ({ isOpen, onClose }) => {
         setStep('loading');
 
         try {
+            // Generate link for email
+            const calLink = generateCalendarLink();
+
             // Prepare template parameters
             const templateParams = {
                 patient_name: formData.name,
@@ -69,7 +71,8 @@ const BookingModal = ({ isOpen, onClose }) => {
                 appointment_date: formData.date,
                 appointment_time: formData.time,
                 purpose: formData.purpose,
-                google_map_link: "https://maps.app.goo.gl/THidSknBavQqz8Re7"
+                google_map_link: "https://maps.app.goo.gl/THidSknBavQqz8Re7",
+                google_cal_link: calLink
             };
 
             // Send Email
