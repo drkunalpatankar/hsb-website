@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { Analytics } from '@vercel/analytics/react';
 import { BookingProvider } from './context/BookingContext';
 import Layout from './components/Layout';
 import ScrollToTop from './components/ScrollToTop';
@@ -44,6 +45,7 @@ function App() {
         <Layout>
           <AnimatedRoutes />
         </Layout>
+        <Analytics />
       </BookingProvider>
     </Router>
   );
