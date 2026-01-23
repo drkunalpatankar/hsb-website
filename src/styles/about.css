@@ -143,3 +143,53 @@
         font-size: 2.5rem;
     }
 }
+
+/* --- Promise List Styling (Refined) --- */
+.promise-list {
+    margin-top: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.promise-item {
+    display: flex;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+}
+
+.promise-icon-wrapper {
+    /* Removed background circle for cleaner look */
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    box-shadow: none;
+    padding-top: 5px;
+}
+
+.promise-icon {
+    color: var(--color-primary-action);
+    width: 42px;
+    height: 42px;
+    stroke-width: 1.5px;
+}
+
+.promise-content {
+    padding-top: 0;
+}
+
+.promise-item h4 {
+    font-size: 1.5rem;
+    font-family: var(--font-serif);
+    font-weight: 500;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-text-primary);
+    line-height: 1.2;
+}
+
+.promise-item p {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 500px;
+}

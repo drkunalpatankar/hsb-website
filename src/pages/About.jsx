@@ -133,26 +133,49 @@ const About = () => {
                 </div>
             </section>
 
-            {/* The Promise */}
+            {/* The Promise (Split Screen) */}
             <section className="section">
-                <div className="container" style={{ maxWidth: '800px' }}>
-                    <h2 className="about-section-title text-center">Our Promise to You</h2>
-                    <div className="promise-list">
-                        <div className="promise-item">
-                            <Clock className="promise-icon" />
-                            <div>
-                                <h4>We Value Your Time</h4>
-                                <p>We run on schedule. Your appointment time is reserved exclusively for you.</p>
+                <div className="container">
+                    <motion.div
+                        className="about-split-section"
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                    >
+                        {/* Left: Image (Dental Chair) */}
+                        <div className="about-split-image">
+                            <img
+                                src="/images/clinic/operatory.jpg"
+                                alt="Modern Dental Operatory - Clean and Safe"
+                            />
+                        </div>
+
+                        {/* Right: The Promises */}
+                        <div className="about-split-text" style={{ paddingLeft: 'var(--spacing-lg)', paddingRight: 0 }}>
+                            <h2 className="about-section-title">Our Promise to You</h2>
+
+                            <div className="promise-list">
+                                <div className="promise-item">
+                                    <div className="promise-icon-wrapper">
+                                        <Clock className="promise-icon" />
+                                    </div>
+                                    <div className="promise-content">
+                                        <h4>We Value Your Time</h4>
+                                        <p>We run on schedule. Your appointment time is reserved exclusively for you, ensuring no waiting and full attention.</p>
+                                    </div>
+                                </div>
+                                <div className="promise-item">
+                                    <div className="promise-icon-wrapper">
+                                        <ShieldCheck className="promise-icon" />
+                                    </div>
+                                    <div className="promise-content">
+                                        <h4>Transparency First</h4>
+                                        <p>No hidden fees. No complex jargon. Just honest, clear communication about your treatment plan and costs.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div className="promise-item">
-                            <ShieldCheck className="promise-icon" />
-                            <div>
-                                <h4>Transparency First</h4>
-                                <p>No hidden fees. No comprehensive jargon. Just honest, clear communication about your treatment and costs.</p>
-                            </div>
-                        </div>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
         </motion.div>
