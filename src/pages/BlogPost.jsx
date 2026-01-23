@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link, Navigate } from 'react-router-dom';
 import { blogs } from '../data/blogData';
 import '../styles/pages.css';
+import { useBooking } from '../context/BookingContext';
 import Button from '../components/ui/Button';
 import { ArrowLeft, Calendar, User } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -10,6 +11,8 @@ import SEO from '../components/SEO';
 const BlogPost = () => {
     const { id } = useParams();
     const blog = blogs.find(b => b.id === id);
+
+    const { openBooking } = useBooking();
 
     if (!blog) {
         return <Navigate to="/resources" replace />;
@@ -103,9 +106,7 @@ const BlogPost = () => {
                 <div style={{ marginTop: '60px', padding: '40px', background: 'var(--color-bg-warm-beige)', borderRadius: '20px', textAlign: 'center' }}>
                     <h3 style={{ marginBottom: '15px' }}>Have more questions?</h3>
                     <p style={{ marginBottom: '25px' }}>We are here to help you on your journey to a perfect smile.</p>
-                    <Link to="/contact">
-                        <Button variant="primary">Book a Consultation</Button>
-                    </Link>
+                    <Button variant="primary" onClick={() => openBooking(`Blog Post: ${blog.title}`)}>Book a Consultation</Button>
                 </div>
             </div>
 
