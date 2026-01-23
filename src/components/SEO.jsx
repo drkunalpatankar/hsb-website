@@ -15,6 +15,11 @@ const SEO = ({
     const currentUrl = canonical || window.location.href;
     const metaKeywords = keywords || "orthodontist, braces, invisible aligners, invisalign, mumbai, dentist, smile transformation";
 
+    // Cache busting version for social images
+    const CACHE_VERSION = "1";
+    const defaultImage = `https://heartstringsbraces.com/og-social-share.jpg?v=${CACHE_VERSION}`;
+
+
     return (
         <Helmet>
             {/* Standard Metadata */}
@@ -29,13 +34,13 @@ const SEO = ({
             <meta property="og:description" content={openGraph?.description || metaDescription} />
             <meta property="og:url" content={currentUrl} />
             <meta property="og:site_name" content="Heartstrings & Braces" />
-            <meta property="og:image" content={openGraph?.image || "https://heartstringsbraces.com/og-social-share.jpg"} />
+            <meta property="og:image" content={openGraph?.image || defaultImage} />
 
             {/* Twitter */}
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={title || siteTitle} />
             <meta name="twitter:description" content={metaDescription} />
-            <meta name="twitter:image" content={openGraph?.image || "https://heartstringsbraces.com/og-social-share.jpg"} />
+            <meta name="twitter:image" content={openGraph?.image || defaultImage} />
 
             {/* Structured Data (Schema.org) */}
             {schema && (
