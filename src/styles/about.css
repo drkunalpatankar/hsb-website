@@ -1,111 +1,153 @@
 /* About Page Specific Styles */
 
+/* --- 1. Hero / Intro Section --- */
 .about-intro {
-    text-align: center;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
+    text-align: center;
+    padding: var(--spacing-xl) 0;
 }
 
-.about-section-title {
-    font-size: var(--text-3xl);
+.about-header-large {
+    font-size: clamp(2.5rem, 5vw, 4rem);
     font-family: var(--font-serif);
-    color: var(--color-text-primary);
-    margin-bottom: var(--spacing-md);
+    color: var(--color-primary-action);
+    line-height: 1.1;
+    margin-bottom: var(--spacing-lg);
+    font-weight: 300;
+    /* Editorial hairline feel */
 }
 
-.about-text-lead {
-    font-size: 1.25rem;
-    line-height: 1.6;
+/* --- 2. Split Screen Layout (Slow Dentistry) --- */
+.about-split-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-2xl);
+    align-items: center;
+    margin: var(--spacing-2xl) 0;
+}
+
+.about-split-text {
+    padding-right: var(--spacing-lg);
+}
+
+.about-split-image {
+    position: relative;
+    border-radius: var(--radius-2xl);
+    /* 24px soft corners */
+    overflow: hidden;
+    box-shadow: var(--shadow-xl);
+    /* Strict aspect ratio control */
+    aspect-ratio: 4 / 3;
+    width: 100%;
+}
+
+.about-split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Ensuring crop without distortion */
+    transition: transform 0.7s ease;
+}
+
+.about-split-image:hover img {
+    transform: scale(1.03);
+    /* Subtle breathing effect */
+}
+
+.about-manifesto {
+    font-size: 1.5rem;
+    /* Larger "Manifesto" text */
+    line-height: 1.5;
     color: var(--color-accent-teal);
-    font-weight: 500;
+    font-family: var(--font-serif);
     margin-bottom: var(--spacing-lg);
 }
 
-.about-text {
-    font-size: 1.1rem;
+.about-body {
+    font-size: 1.125rem;
     line-height: 1.8;
     color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
 }
 
-.about-subtitle {
-    font-size: 1.1rem;
-    color: var(--color-text-secondary);
-    font-style: italic;
-}
-
-/* Methodology Grid */
+/* --- 3. Methodology Grid (Glassmorphism) --- */
 .methodology-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--spacing-lg);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    /* Increased gap for breathing room */
+    padding: var(--spacing-lg) 0;
 }
 
 .methodology-card {
-    background: white;
-    padding: var(--spacing-lg);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
+    background: rgba(255, 255, 255, 0.7);
+    /* Translucent */
+    backdrop-filter: blur(12px);
+    /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+    /* Very soft shadow */
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .methodology-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    background: rgba(255, 255, 255, 0.9);
 }
 
-.method-icon {
-    width: 40px;
-    height: 40px;
+.method-icon-wrapper {
+    width: 70px;
+    height: 70px;
+    background: var(--color-bg-mint-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
     color: var(--color-primary-action);
-    margin-bottom: var(--spacing-md);
-    stroke-width: 1.5;
 }
 
 .methodology-card h3 {
     font-family: var(--font-serif);
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     margin-bottom: var(--spacing-sm);
     color: var(--color-text-primary);
 }
 
 .methodology-card p {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--color-text-secondary);
     line-height: 1.6;
 }
 
-/* Promise List */
-.promise-list {
-    margin-top: var(--spacing-xl);
-}
+/* --- Mobile Responsiveness --- */
+@media (max-width: 900px) {
+    .about-split-section {
+        grid-template-columns: 1fr;
+        /* Stack vertically */
+        gap: var(--spacing-lg);
+    }
 
-.promise-item {
-    display: flex;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
-    align-items: flex-start;
-}
+    .about-split-image {
+        order: -1;
+        /* Image TOP */
+        max-height: 350px;
+        /* Limit height on mobile */
+    }
 
-.promise-icon {
-    color: var(--color-accent-mint);
-    width: 32px;
-    height: 32px;
-    flex-shrink: 0;
-}
+    .about-split-text {
+        padding-right: 0;
+        text-align: left;
+        /* Keep left alignment for readability */
+    }
 
-.promise-item h4 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-    color: var(--color-text-primary);
-}
-
-.promise-item p {
-    color: var(--color-text-secondary);
-}
-
-@media (max-width: 768px) {
-    .about-text-lead {
-        font-size: 1.1rem;
+    .about-header-large {
+        font-size: 2.5rem;
     }
 }

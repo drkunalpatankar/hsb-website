@@ -68,10 +68,30 @@ const Contact = () => {
             </section>
 
             <section className="section">
-                <div className="container contact-grid">
+                <div className="container contact-grid" style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                    gap: '40px',
+                    alignItems: 'start'
+                }}>
+                    {/* Image Column */}
+                    <div style={{
+                        borderRadius: 'var(--radius-lg)',
+                        overflow: 'hidden',
+                        boxShadow: 'var(--shadow-md)',
+                        aspectRatio: '4/3' // Enforce aspect ratio
+                    }}>
+                        <img
+                            src="/images/clinic/facade-day.jpg"
+                            alt="Dr. Mayekar's Oral Care Centre Entrance"
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
+                    </div>
+
                     {/* Info Column */}
                     <div>
                         <h2 style={{ fontFamily: 'var(--font-serif)', marginBottom: '30px', fontSize: '2.5rem' }}>Visit Us</h2>
+
 
                         <div className="contact-item" style={{ display: 'flex', gap: '20px', marginBottom: '30px' }}>
                             <MapPin className="text-teal" size={28} />

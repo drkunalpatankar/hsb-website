@@ -53,25 +53,43 @@ const About = () => {
             </section>
 
             {/* Core Ethos Section */}
+            {/* Core Ethos Section (Split Screen) */}
             <section className="section">
                 <div className="container">
                     <motion.div
-                        className="about-intro"
+                        className="about-split-section"
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                     >
-                        <h2 className="about-section-title">The Art of Slow Dentistry</h2>
-                        <p className="about-text-lead">
-                            In a world that prioritizes speed, we choose to prioritize meaning. "Slow Dentistry" is not about working slowly;
-                            it is about taking the time to truly listen, to plan meticulously, and to ensure that every biological boundary is respected.
-                        </p>
-                        <p className="about-text">
-                            We believe that the most stable, beautiful smiles are built on a foundation of health.
-                            We refuse to rush biological processes. By allowing teeth to move at their natural pace, we minimize risk,
-                            reduce discomfort, and ensure results that last a lifetime.
-                        </p>
+                        {/* Left: Text Manifesto */}
+                        <div className="about-split-text">
+                            <h2 className="about-header-large">The Art of<br />Slow Dentistry</h2>
+                            <p className="about-manifesto">
+                                In a world that prioritizes speed, we choose to prioritize meaning.
+                            </p>
+                            <p className="about-body">
+                                "Slow Dentistry" is not about working slowly; it is about taking the time to truly listen,
+                                to plan meticulously, and to ensure that every biological boundary is respected.
+                            </p>
+                            <p className="about-body">
+                                We believe that the most stable, beautiful smiles are built on a foundation of health.
+                                By allowing teeth to move at their natural pace, we minimize risk, reduce discomfort,
+                                and ensure results that last a lifetime.
+                            </p>
+                            <div style={{ marginTop: '30px', fontFamily: 'cursive', fontSize: '1.5rem', color: 'var(--color-primary-action)' }}>
+                                Dr. Krutika Patankar
+                            </div>
+                        </div>
+
+                        {/* Right: Feature Image */}
+                        <div className="about-split-image">
+                            <img
+                                src="/images/clinic/waiting-area.jpg"
+                                alt="Heartstrings & Braces Waiting Area - A Sanctuary of Calm"
+                            />
+                        </div>
                     </motion.div>
                 </div>
             </section>
@@ -92,22 +110,30 @@ const About = () => {
                         viewport={{ once: true }}
                     >
                         <motion.div className="methodology-card" variants={fadeInUp}>
-                            <Sliders className="method-icon" />
+                            <div className="method-icon-wrapper">
+                                <Sliders size={32} />
+                            </div>
                             <h3>Precision Planning</h3>
                             <p>We use advanced digital scanning and 3D simulation to map every millimeter of tooth movement before we even begin.</p>
                         </motion.div>
                         <motion.div className="methodology-card" variants={fadeInUp}>
-                            <Microscope className="method-icon" />
+                            <div className="method-icon-wrapper">
+                                <Microscope size={32} />
+                            </div>
                             <h3>Evidence-Based</h3>
                             <p>Our protocols are grounded in current scientific literature. We don't chase fads; we stick to what is proven to work safely.</p>
                         </motion.div>
                         <motion.div className="methodology-card" variants={fadeInUp}>
-                            <Users className="method-icon" />
+                            <div className="method-icon-wrapper">
+                                <Users size={32} />
+                            </div>
                             <h3>Collaborative Care</h3>
                             <p>For complex cases, we work hand-in-hand with your restorative dentist or periodontist to ensure comprehensive health.</p>
                         </motion.div>
                         <motion.div className="methodology-card" variants={fadeInUp}>
-                            <Heart className="method-icon" />
+                            <div className="method-icon-wrapper">
+                                <Heart size={32} />
+                            </div>
                             <h3>Emotional Safety</h3>
                             <p>We understand that dental visits can be anxiety-inducing. Our environment is designed to be a sanctuary of calm.</p>
                         </motion.div>
