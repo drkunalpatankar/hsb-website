@@ -11,7 +11,7 @@ const SEO = ({
 }) => {
     const siteTitle = "Heartstrings & Braces | Dr. Krutika Patankar";
     const fullTitle = title ? `${title} | Heartstrings & Braces` : siteTitle;
-    const metaDescription = description || "Expert orthodontic care in Mumbai. Specialized in invisible aligners, metal braces, and ceramic braces for children, teens, and adults.";
+    const metaDescription = description || "Evidence-based orthodontics for all ages, delivered with clinical precision and emotional warmth.";
     const currentUrl = canonical || window.location.href;
     const metaKeywords = keywords || "orthodontist, braces, invisible aligners, invisalign, mumbai, dentist, smile transformation";
 
@@ -29,13 +29,13 @@ const SEO = ({
             <meta property="og:description" content={openGraph?.description || metaDescription} />
             <meta property="og:url" content={currentUrl} />
             <meta property="og:site_name" content="Heartstrings & Braces" />
-            <meta property="og:image" content={openGraph?.image || "https://heartstringsbraces.com/og-image.jpg"} />
+            <meta property="og:image" content={openGraph?.image || "https://heartstringsbraces.com/og-social-share.jpg"} />
 
             {/* Twitter */}
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={title || siteTitle} />
             <meta name="twitter:description" content={metaDescription} />
-            <meta name="twitter:image" content={openGraph?.image || "https://heartstringsbraces.com/og-image.jpg"} />
+            <meta name="twitter:image" content={openGraph?.image || "https://heartstringsbraces.com/og-social-share.jpg"} />
 
             {/* Structured Data (Schema.org) */}
             {schema && (

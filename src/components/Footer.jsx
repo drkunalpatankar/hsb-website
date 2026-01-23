@@ -1,6 +1,6 @@
 import React from 'react';
 import './Footer.css';
-import { Instagram, MapPin, Mail, Phone, Calendar } from 'lucide-react';
+import { Instagram, MapPin, Mail, Phone, Calendar, Linkedin } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -14,6 +14,7 @@ const Footer = () => {
                     <p className="footer__tagline">Evidence-based orthodontics for all ages.</p>
                     <div className="footer__socials">
                         <a href="https://www.instagram.com/heartstringsbraces" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><Instagram size={20} /></a>
+                        <a href="https://www.linkedin.com/company/heartstringsbraces" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><Linkedin size={20} /></a>
                     </div>
                 </div>
 

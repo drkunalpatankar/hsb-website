@@ -228,6 +228,9 @@ const BookingModal = ({ isOpen, onClose, initialPurpose = '' }) => {
                                     <Button type="submit" variant="primary" className="w-full">
                                         Confirm Booking
                                     </Button>
+                                    <p style={{ fontSize: '0.75rem', marginTop: '12px', textAlign: 'center', opacity: 0.7, color: 'var(--color-text-secondary)', lineHeight: '1.3' }}>
+                                        By booking, you consent to the Heartstrings & Braces team contacting you via phone, WhatsApp, or email in the future.
+                                    </p>
                                 </form>
                             </>
                         )}

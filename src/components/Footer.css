@@ -24,6 +24,11 @@
     max-width: 300px;
 }
 
+.footer__socials {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
 .footer__socials a {
     display: inline-flex;
     padding: 8px;
