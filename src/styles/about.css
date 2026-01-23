@@ -71,57 +71,49 @@
     margin-bottom: var(--spacing-md);
 }
 
-/* --- 3. Methodology Grid (Glassmorphism) --- */
+/* --- 3. Methodology Grid (Original) --- */
 .methodology-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-xl);
-    /* Increased gap for breathing room */
-    padding: var(--spacing-lg) 0;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    padding: 0;
 }
 
 .methodology-card {
-    background: rgba(255, 255, 255, 0.7);
-    /* Translucent */
-    backdrop-filter: blur(12px);
-    /* Frosted glass effect */
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    padding: var(--spacing-xl);
-    border-radius: var(--radius-xl);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-    /* Very soft shadow */
+    background: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
     text-align: center;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.3s ease;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
 }
 
 .methodology-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    background: rgba(255, 255, 255, 0.9);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+    background: white;
 }
 
-.method-icon-wrapper {
-    width: 70px;
-    height: 70px;
-    background: var(--color-bg-mint-light);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto var(--spacing-md);
+.method-icon {
+    width: 40px;
+    height: 40px;
     color: var(--color-primary-action);
+    margin-bottom: var(--spacing-md);
+    stroke-width: 1.5;
 }
 
 .methodology-card h3 {
     font-family: var(--font-serif);
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     margin-bottom: var(--spacing-sm);
     color: var(--color-text-primary);
 }
 
 .methodology-card p {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--color-text-secondary);
     line-height: 1.6;
 }

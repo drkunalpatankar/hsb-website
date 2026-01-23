@@ -110,30 +110,22 @@ const About = () => {
                         viewport={{ once: true }}
                     >
                         <motion.div className="methodology-card" variants={fadeInUp}>
-                            <div className="method-icon-wrapper">
-                                <Sliders size={32} />
-                            </div>
+                            <Sliders className="method-icon" />
                             <h3>Precision Planning</h3>
                             <p>We use advanced digital scanning and 3D simulation to map every millimeter of tooth movement before we even begin.</p>
                         </motion.div>
                         <motion.div className="methodology-card" variants={fadeInUp}>
-                            <div className="method-icon-wrapper">
-                                <Microscope size={32} />
-                            </div>
+                            <Microscope className="method-icon" />
                             <h3>Evidence-Based</h3>
                             <p>Our protocols are grounded in current scientific literature. We don't chase fads; we stick to what is proven to work safely.</p>
                         </motion.div>
                         <motion.div className="methodology-card" variants={fadeInUp}>
-                            <div className="method-icon-wrapper">
-                                <Users size={32} />
-                            </div>
+                            <Users className="method-icon" />
                             <h3>Collaborative Care</h3>
                             <p>For complex cases, we work hand-in-hand with your restorative dentist or periodontist to ensure comprehensive health.</p>
                         </motion.div>
                         <motion.div className="methodology-card" variants={fadeInUp}>
-                            <div className="method-icon-wrapper">
-                                <Heart size={32} />
-                            </div>
+                            <Heart className="method-icon" />
                             <h3>Emotional Safety</h3>
                             <p>We understand that dental visits can be anxiety-inducing. Our environment is designed to be a sanctuary of calm.</p>
                         </motion.div>
