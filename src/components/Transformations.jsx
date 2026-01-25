@@ -1,20 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Transformations.css';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '../utils/animations';
+import { storiesData } from '../data/storiesData';
+import StoryCard from './StoryCard';
+import StoryModal from './StoryModal';
 
 const Transformations = () => {
-    const galleryImages = [
-        '/images/smile-1.png',
-        '/images/smile-2.png',
-        '/images/smile-3.png',
-        '/images/smile-1.png', // Reusing for grid fill
-        '/images/smile-2.png',
-        '/images/smile-3.png'
-    ];
+    const [selectedStory, setSelectedStory] = useState(null);
 
     return (
-        <section className="section transformations">
+        <section className="section transformations" id="real-stories">
             <div className="container">
                 <motion.div
                     className="transformations__header"
@@ -24,7 +20,9 @@ const Transformations = () => {
                     viewport={{ once: true, margin: "-100px" }}
                 >
                     <h2 className="transformations__title">Real Stories, Real Smiles</h2>
-                    <p className="transformations__subtitle">No exaggerations. Just natural, healthy, confident smiles.</p>
+                    <p className="transformations__subtitle">
+                        Slide to reveal the precision. Discover the science behind the smile.
+                    </p>
                 </motion.div>
 
                 <motion.div
@@ -34,20 +32,27 @@ const Transformations = () => {
                     whileInView="visible"
                     viewport={{ once: true, margin: "-50px" }}
                 >
-                    {galleryImages.map((src, index) => (
+                    {storiesData.map((story) => (
                         <motion.div
-                            key={index}
-                            className="gallery-item"
+                            key={story.id}
+                            className="transformations__item"
                             variants={fadeInUp}
-                            whileHover={{ scale: 1.05 }}
                         >
-                            <div className="gallery-image-wrapper">
-                                <img src={src} alt={`Smile transformation ${index + 1}`} style={{ width: '100%', height: '100%', objectFit: 'contain', padding: '20px' }} />
-                            </div>
+                            <StoryCard
+                                story={story}
+                                onViewDetails={setSelectedStory}
+                            />
                         </motion.div>
                     ))}
                 </motion.div>
             </div>
+
+            {selectedStory && (
+                <StoryModal
+                    story={selectedStory}
+                    onClose={() => setSelectedStory(null)}
+                />
+            )}
         </section>
     );
 };

@@ -1,0 +1,193 @@
+/* Brochure Specific Styles */
+@import './variables.css';
+
+.brochure-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  overflow-y: auto;
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+}
+
+.brochure-page {
+  /* Vistaprint Dimensions: 30.3cm x 21.6cm */
+  width: 30.3cm;
+  height: 21.6cm;
+  background-color: var(--color-white);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.brochure-panel {
+  padding: 1.5cm 1cm;
+  /* Vertical, Horizontal */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.brochure-heading {
+  font-family: var(--font-serif);
+  color: var(--color-primary-action);
+  font-size: 1.25rem;
+  /* Adjusted for print */
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.brochure-title-large {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--color-primary-action);
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.brochure-subheading {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.brochure-text {
+  font-size: 0.75rem;
+  /* Smaller for print legibility in columns */
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.75rem;
+  text-align: justify;
+}
+
+.brochure-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.brochure-list li {
+  font-size: 0.75rem;
+  margin-bottom: 0.25rem;
+  padding-left: 1rem;
+  position: relative;
+  color: var(--color-text-secondary);
+}
+
+.brochure-list li::before {
+  content: "•";
+  color: var(--color-primary-action);
+  position: absolute;
+  left: 0;
+  font-weight: bold;
+}
+
+/* Images */
+.brochure-img-full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.brochure-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  /* Light overlay for readability */
+  z-index: 0;
+}
+
+.panel-front-cover .brochure-overlay {
+  background: linear-gradient(to top, rgba(253, 252, 248, 1) 20%, rgba(253, 252, 248, 0.4) 100%);
+}
+
+/* Panel Specifics */
+.panel-inside-flap {
+  background-color: var(--color-accent-mint);
+}
+
+.panel-back-cover {
+  background-color: var(--color-primary-action);
+  color: var(--color-white);
+}
+
+.panel-back-cover .brochure-heading,
+.panel-back-cover .brochure-text,
+.panel-back-cover .brochure-subheading,
+.panel-back-cover .brochure-list li {
+  color: var(--color-white);
+}
+
+.panel-front-cover {
+  background-color: var(--color-bg-warm-beige);
+  padding: 0;
+  /* Remove padding to let image bleed */
+}
+
+.front-cover-content {
+  position: absolute;
+  bottom: 2cm;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+  z-index: 10;
+}
+
+/* Inside Panels */
+.panel-inside-center {
+  border-left: 1px dashed var(--color-accent-teal);
+  border-right: 1px dashed var(--color-accent-teal);
+}
+
+/* Print Overrides */
+@media print {
+  @page {
+    size: 30.3cm 21.6cm;
+    margin: 0;
+  }
+
+  body,
+  .brochure-container {
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+
+  .brochure-page {
+    box-shadow: none;
+    page-break-after: always;
+  }
+
+  .control-panel,
+  .debug-guides {
+    display: none !important;
+  }
+
+  /* Ensure backgrounds print */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

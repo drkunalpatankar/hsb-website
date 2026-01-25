@@ -1,79 +1,56 @@
 .transformations {
-    background-color: white;
+    background-color: var(--color-bg-light, #fafafa);
+    padding: 5rem 0;
 }
 
 .transformations__header {
     text-align: center;
-    margin-bottom: var(--spacing-xl);
+    max-width: 600px;
+    margin: 0 auto 3rem;
 }
 
 .transformations__title {
     font-size: var(--text-3xl);
-    margin-bottom: var(--spacing-sm);
+    font-family: var(--font-serif);
+    margin-bottom: 0.75rem;
     color: var(--color-text-primary);
+    line-height: 1.2;
 }
 
 .transformations__subtitle {
     color: var(--color-text-secondary);
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .transformations__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-md);
-    auto-rows: 300px;
+    gap: 2rem;
+    align-items: stretch;
 }
 
-.gallery-item {
-    border-radius: var(--radius-md);
-    overflow: hidden;
-    position: relative;
-    transition: transform var(--transition-smooth);
-}
-
-.gallery-item:hover {
-    transform: scale(1.02);
-}
-
-.gallery-placeholder {
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-accent-mint);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-primary-action);
-    font-family: var(--font-serif);
-    font-size: var(--text-xl);
-    opacity: 0.5;
-}
-
-/* Creating an asymmetric/masonry-like feel with span if needed, but keeping simple grid as requested for elegance */
-.gallery-item:nth-child(2) .gallery-placeholder {
-    background-color: var(--color-accent-teal);
-}
-
-.gallery-item:nth-child(3) .gallery-placeholder {
-    background-color: var(--color-accent-lavender);
-}
-
-.gallery-item:nth-child(4) .gallery-placeholder {
-    background-color: #F1F1F1;
-}
-
-.gallery-item:nth-child(5) .gallery-placeholder {
-    background-color: var(--color-bg-warm-beige);
-}
-
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .transformations__grid {
         grid-template-columns: repeat(2, 1fr);
-        auto-rows: 200px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
     .transformations__grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
+
+    .transformations__header {
+        margin-bottom: 2rem;
+    }
+}
+
+.transformations__item {
+    display: flex;
+}
+
+.transformations__item>* {
+    width: 100%;
 }

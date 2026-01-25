@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import WhatsAppButton from './WhatsAppButton';
 
 const Layout = ({ children }) => {
     const { pathname } = useLocation();
@@ -17,6 +18,7 @@ const Layout = ({ children }) => {
                 {children}
             </main>
             <Footer />
+            <WhatsAppButton />
         </div>
     );
 };
