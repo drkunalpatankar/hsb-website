@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './CaseGallery.css';
 import { motion } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '../utils/animations';
-import { caseGalleryData, caseCategories } from '../data/caseGalleryData';
+import { client, urlFor } from '../lib/sanity';
+import { caseCategories } from '../data/caseGalleryData';
 import DisclaimerModal from '../components/DisclaimerModal';
 import CaseCard from '../components/CaseCard';
 import CaseDetailModal from '../components/CaseDetailModal';
@@ -12,6 +13,42 @@ const CaseGallery = () => {
     const [disclaimerAccepted, setDisclaimerAccepted] = useState(false);
     const [activeFilter, setActiveFilter] = useState('all');
     const [selectedCase, setSelectedCase] = useState(null);
+    const [cases, setCases] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    // Fetch cases from Sanity
+    useEffect(() => {
+        const query = `*[_type == "caseStudy"]{
+            title,
+            category,
+            mainImage,
+            summary,
+            technicalDetails
+        }`;
+
+        client.fetch(query)
+            .then((data) => {
+                // Map Sanity data to our app structure
+                const mappedCases = data.map(item => ({
+                    id: item._id || item.title, // Fallback ID
+                    title: item.title,
+                    category: item.category,
+                    thumbnail: item.mainImage ? urlFor(item.mainImage).width(600).url() : '',
+                    summary: item.summary,
+                    technicalDetails: item.technicalDetails // Keep as Portable Text blocks
+                }));
+                console.log('Fetched Cases:', mappedCases);
+                setCases(mappedCases);
+            })
+            .catch((err) => {
+                console.error(err);
+                setError(err.message);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+    }, []);
 
     // Check if disclaimer was already accepted this session
     useEffect(() => {
@@ -27,9 +64,10 @@ const CaseGallery = () => {
     };
 
     // Filter cases
+    // Filter cases
     const filteredCases = activeFilter === 'all'
-        ? caseGalleryData
-        : caseGalleryData.filter(c => c.category === activeFilter);
+        ? cases
+        : cases.filter(c => c.category === activeFilter);
 
     return (
         <>
@@ -55,7 +93,7 @@ const CaseGallery = () => {
                         <span className="case-gallery__tagline">The Unseen Work Behind Every Smile</span>
                         <h1 className="case-gallery__title">Case Gallery</h1>
                         <p className="case-gallery__subtitle">
-                            "No smile is too complex, no case is too small."
+                            "No smile too complex, No case too small."
                         </p>
                     </motion.div>
 
@@ -73,30 +111,41 @@ const CaseGallery = () => {
                     </div>
 
                     {/* Grid */}
-                    <motion.div
-                        className="case-gallery__grid"
-                        variants={staggerContainer}
-                        initial="hidden"
-                        animate="visible"
-                    >
-                        {filteredCases.length > 0 ? (
-                            filteredCases.map(caseItem => (
-                                <motion.div key={caseItem.id} variants={fadeInUp}>
-                                    <CaseCard
-                                        caseData={caseItem}
-                                        onClick={setSelectedCase}
-                                    />
-                                </motion.div>
-                            ))
-                        ) : (
-                            <div className="case-gallery__empty">
-                                <div className="case-gallery__empty-icon">📁</div>
-                                <p className="case-gallery__empty-text">
-                                    No cases found in this category yet. More coming soon!
-                                </p>
-                            </div>
-                        )}
-                    </motion.div>
+                    {loading ? (
+                        <div style={{ textAlign: 'center', padding: '4rem', color: '#999' }}>Loading cases...</div>
+                    ) : error ? (
+                        <div style={{ textAlign: 'center', padding: '4rem', color: 'red' }}>
+                            <p>Error loading cases: {error}</p>
+                            <p style={{ fontSize: '0.9rem', color: '#666', marginTop: '1rem' }}>
+                                (Please ensure 'http://localhost:5173' is added to CORS Origins in your Sanity Dashboard)
+                            </p>
+                        </div>
+                    ) : (
+                        <motion.div
+                            className="case-gallery__grid"
+                            variants={staggerContainer}
+                            initial="hidden"
+                            animate="visible"
+                        >
+                            {filteredCases.length > 0 ? (
+                                filteredCases.map(caseItem => (
+                                    <motion.div key={caseItem.id} variants={fadeInUp}>
+                                        <CaseCard
+                                            caseData={caseItem}
+                                            onClick={setSelectedCase}
+                                        />
+                                    </motion.div>
+                                ))
+                            ) : (
+                                <div className="case-gallery__empty">
+                                    <div className="case-gallery__empty-icon">📁</div>
+                                    <p className="case-gallery__empty-text">
+                                        No cases found in this category yet. More coming soon!
+                                    </p>
+                                </div>
+                            )}
+                        </motion.div>
+                    )}
                 </div>
             </section>
 

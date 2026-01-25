@@ -71,6 +71,12 @@
     background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%);
     padding: 2rem 1rem 1rem;
     pointer-events: none;
+    transition: opacity 0.3s ease;
+    /* Smooth fade out */
+}
+
+.case-card:hover .case-card__static-info {
+    opacity: 0;
 }
 
 .case-card__static-title {
@@ -85,5 +91,10 @@
     .case-card__overlay {
         opacity: 1;
         /* Always show on mobile */
+    }
+
+    .case-card__static-info {
+        display: none;
+        /* Hide static info to prevent overlap */
     }
 }

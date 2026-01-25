@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import './CaseDetailModal.css';
 import { caseCategories } from '../data/caseGalleryData';
 import { useBooking } from '../context/BookingContext';
+import { PortableText } from '@portabletext/react';
+import { urlFor } from '../lib/sanity';
 
 const CaseDetailModal = ({ caseData, onClose }) => {
     const { openBooking } = useBooking();
@@ -29,22 +31,33 @@ const CaseDetailModal = ({ caseData, onClose }) => {
         }, 200);
     };
 
-    // Simple markdown-to-HTML conversion for technical details
-    const renderTechnicalDetails = (markdown) => {
-        if (!markdown) return null;
-
-        // Convert markdown to basic HTML
-        let html = markdown
-            .replace(/## (.+)/g, '<h2>$1</h2>')
-            .replace(/### (.+)/g, '<h3>$1</h3>')
-            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-            .replace(/- (.+)/g, '<li>$1</li>')
-            .replace(/(<li>.*<\/li>)\n(?=<li>)/g, '$1')
-            .replace(/(<li>.*<\/li>)+/g, '<ul>$&</ul>')
-            .replace(/\n\n/g, '</p><p>')
-            .replace(/\n/g, '<br/>');
-
-        return <div dangerouslySetInnerHTML={{ __html: `<p>${html}</p>` }} />;
+    // Custom components for Portable Text
+    const ptComponents = {
+        types: {
+            image: ({ value }) => {
+                if (!value?.asset?._ref) {
+                    return null;
+                }
+                return (
+                    <img
+                        alt={value.alt || 'Case detail'}
+                        loading="lazy"
+                        src={urlFor(value).width(800).fit('max').auto('format').url()}
+                        style={{ maxWidth: '100%', borderRadius: '8px', margin: '1.5rem 0' }}
+                    />
+                );
+            }
+        },
+        marks: {
+            link: ({ children, value }) => {
+                const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined;
+                return (
+                    <a href={value.href} rel={rel} target="_blank" style={{ color: '#2D6A4F', textDecoration: 'underline' }}>
+                        {children}
+                    </a>
+                );
+            },
+        },
     };
 
     return (
@@ -74,7 +87,12 @@ const CaseDetailModal = ({ caseData, onClose }) => {
                     <p className="case-detail-modal__summary">{caseData.summary}</p>
 
                     <div className="case-detail-modal__technical">
-                        {renderTechnicalDetails(caseData.technicalDetails)}
+                        {Array.isArray(caseData.technicalDetails) ? (
+                            <PortableText value={caseData.technicalDetails} components={ptComponents} />
+                        ) : (
+                            // Fallback for string data if any mock data remains
+                            <div dangerouslySetInnerHTML={{ __html: caseData.technicalDetails }} />
+                        )}
                     </div>
 
                     <button className="case-detail-modal__cta" onClick={handleBookConsultation}>
