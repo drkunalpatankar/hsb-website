@@ -23,6 +23,8 @@ const CaseGallery = () => {
             title,
             category,
             mainImage,
+            beforeImage,
+            afterImage,
             summary,
             technicalDetails
         }`;
@@ -35,6 +37,8 @@ const CaseGallery = () => {
                     title: item.title,
                     category: item.category,
                     thumbnail: item.mainImage ? urlFor(item.mainImage).width(600).url() : '',
+                    beforeImage: item.beforeImage ? urlFor(item.beforeImage).width(800).url() : null,
+                    afterImage: item.afterImage ? urlFor(item.afterImage).width(800).url() : null,
                     summary: item.summary,
                     technicalDetails: item.technicalDetails // Keep as Portable Text blocks
                 }));

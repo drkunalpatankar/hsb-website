@@ -4,6 +4,7 @@ import { caseCategories } from '../data/caseGalleryData';
 import { useBooking } from '../context/BookingContext';
 import { PortableText } from '@portabletext/react';
 import { urlFor } from '../lib/sanity';
+import BeforeAfterSlider from './BeforeAfterSlider';
 
 const CaseDetailModal = ({ caseData, onClose }) => {
     const { openBooking } = useBooking();
@@ -70,7 +71,7 @@ const CaseDetailModal = ({ caseData, onClose }) => {
                     </svg>
                 </button>
 
-                {/* Image Section */}
+                {/* Image Section - Always show Thumbnail */}
                 <div className="case-detail-modal__image-section">
                     <img
                         src={caseData.thumbnail}
@@ -85,6 +86,32 @@ const CaseDetailModal = ({ caseData, onClose }) => {
                     <h2 className="case-detail-modal__title">{caseData.title}</h2>
 
                     <p className="case-detail-modal__summary">{caseData.summary}</p>
+
+                    {/* Before/After Slider - Only show if both images exist */}
+                    {caseData.beforeImage && caseData.afterImage && (
+                        <div className="case-detail-modal__slider-section" style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            margin: '2rem 0'
+                        }}>
+                            <h3 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '1rem', color: '#1a1a1a' }}>
+                                Treatment Comparison
+                            </h3>
+                            <div style={{
+                                width: '100%',
+                                maxWidth: '400px',
+                                borderRadius: '12px',
+                                overflow: 'hidden',
+                                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)'
+                            }}>
+                                <BeforeAfterSlider
+                                    beforeImg={caseData.beforeImage}
+                                    afterImg={caseData.afterImage}
+                                />
+                            </div>
+                        </div>
+                    )}
 
                     <div className="case-detail-modal__technical">
                         {Array.isArray(caseData.technicalDetails) ? (
